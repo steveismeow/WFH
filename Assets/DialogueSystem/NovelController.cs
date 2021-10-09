@@ -24,6 +24,29 @@ public class NovelController : MonoBehaviour
     void Start()
     {
         //LoadGameFile(0);
+
+        //InitializeDialogue(0);
+
+        LoadChapterFile("Scene0");
+
+    }
+
+    public void InitializeDialogue(int sceneNumber)
+    {
+        data = FileManager.LoadFile(FileManager.savePath + "Resources/Story/Scene" + sceneNumber);// + ".txt");
+
+        print(data[0]);
+
+
+        if (handlingChapterFile != null)
+        {
+            StopCoroutine(handlingChapterFile);
+        }
+
+        handlingChapterFile = StartCoroutine(HandlingChapterFile());
+
+
+
     }
 
     //public void LoadGameFile(int gameFileNumber)
@@ -91,6 +114,7 @@ public class NovelController : MonoBehaviour
 
     //    chapterProgress = activeGameFile.chapterProgress;
     //}
+
     //public void SaveGameFile()
     //{
     //    string filePath = FileManager.savePath + "userData/gameFiles/" + activeGameFileNumber.ToString() + ".txt";
@@ -166,6 +190,7 @@ public class NovelController : MonoBehaviour
     private int chapterProgress = 0;
     IEnumerator HandlingChapterFile()
     {
+        print("Handling text file!");
         chapterProgress = 0;
 
         while (chapterProgress < data.Count)
