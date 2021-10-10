@@ -4,7 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-
+/// <summary>
+/// Manages the dialogue UI elements and the TextArchitect
+/// </summary>
 public class DialogueManager : MonoBehaviour
 {
 

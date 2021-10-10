@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Manages each line in the dialogue file: Segmentation and interprets tags line by line at the behest of the NovelController
+/// </summary>
 public class ChapterLineManager : MonoBehaviour
 {
     public static Line Interpret(string rawLine)

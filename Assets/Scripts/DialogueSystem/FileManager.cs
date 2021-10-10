@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
+/// <summary>
+/// Most of this script is obsolete; the primary function is to access the .txt files with the LoadFIle() method
+/// </summary>
 public class FileManager : MonoBehaviour
 {
 	/// <summary>

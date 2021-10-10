@@ -1,0 +1,66 @@
+#Make a character speak
+  characterName "dialogue"
+  No name before dialogue means use last speaker
+  player "dialogue" = dialogue with no speaker
+
+#DIALOGUE COMMAND TAGS
+#use these tags to manipulate dialogue dynamics within a group of text
+  {c} wait for input and clear
+  {a} wait for input and add to the current text
+  {w n} wait for n seconds and clear
+  {wa n} wait for n seconds and add to the current text
+
+#Load a txt file and begin interpreting
+  Load(chapterName)
+
+  #Close dialogue window and end file interpretation
+    exitDialogue()
+
+#Change Layer Image
+  setBackground(imageName,speed,smooth)
+  setCinematic(imageName,speed,smooth)
+  setForeground(imageName,speed,smooth)
+
+#Play Sounds and Music
+  playSound(soundName)
+  playMusic(musicName)
+
+                  //#Shake character side to side
+                  //  shake(characterName,time)
+
+#Dialogue Events
+  [txtSpd delay,charactersPerFrame] - change architect speed
+    [/txtSpd] - return to normal speed
+
+
+#Make a choice
+  choice "header text"
+  {
+  "choose this option"
+  character "dialogue in response", or
+  LoadChapter for loading a different txt file, or
+  AdditionalFunctions
+  }
+  //Need functionality for setting a PlayerData bool as well as
+  accessing future event data during random or scripted Events
+
+
+  //CHARTACTER STUFF/////////////////////////////
+  #Have a character enter or exit a Scene
+    enter(characterName,emotion,position,enterDuration)
+    exit(characterName;othercharacterName)
+
+  #Change character expressions
+    setExpression(characterName,speed,expresionName)
+
+  #Set character position
+    setCharPosition(characterName,position)
+
+  #Move character on screen
+    move(characterName,position,speed,smooth)
+
+  #Flip character horizontally
+    flip(characterName)
+    faceLeft(characterName)
+    faceRight(characterName)
+  /////////////////////////////////////////////

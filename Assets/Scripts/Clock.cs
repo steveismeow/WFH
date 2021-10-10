@@ -4,6 +4,9 @@ using UnityEngine;
 using System;
 using TMPro;
 
+/// <summary>
+/// Pulls realtime clock information and sets the in-game clock accordingly.
+/// </summary>
 public class Clock : MonoBehaviour
 {
     public TMP_Text clockText;

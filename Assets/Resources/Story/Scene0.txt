@@ -1,4 +1,3 @@
 
 player "Hey! {a} Aren't you [txtSpd 15,1]meeeeeeeeeee[/txtSpd]?"
-
-
+exitDialogue()

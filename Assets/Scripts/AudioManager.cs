@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Manages audio playback
+/// </summary>
 public class AudioManager : MonoBehaviour
 {
 

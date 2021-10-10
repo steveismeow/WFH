@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+/// <summary>
+/// This is used as a separate text entity usually around the middle to upper quarter portion of the screen. Used for dialogue choice options
+/// </summary>
 public class TextHeader : MonoBehaviour
 {
 

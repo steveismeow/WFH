@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Manages the txt file and interprets actions and inputs
+/// </summary>
 public class NovelController : MonoBehaviour
 {
     public static NovelController instance;
@@ -16,7 +19,7 @@ public class NovelController : MonoBehaviour
         instance = this;
     }
 
-    int activeGameFileNumber = 0;
+    //int activeGameFileNumber = 0;
     //GameFile activeGameFile = null;
     string activeChapterFile = "";
 
@@ -27,27 +30,27 @@ public class NovelController : MonoBehaviour
 
         //InitializeDialogue(0);
 
-        LoadChapterFile("Scene0");
+        //LoadChapterFile("Scene0");
 
     }
 
-    public void InitializeDialogue(int sceneNumber)
-    {
-        data = FileManager.LoadFile(FileManager.savePath + "Resources/Story/Scene" + sceneNumber);// + ".txt");
+    //public void InitializeDialogue(int sceneNumber)
+    //{
+    //    data = FileManager.LoadFile(FileManager.savePath + "Resources/Story/Scene" + sceneNumber);// + ".txt");
 
-        print(data[0]);
-
-
-        if (handlingChapterFile != null)
-        {
-            StopCoroutine(handlingChapterFile);
-        }
-
-        handlingChapterFile = StartCoroutine(HandlingChapterFile());
+    //    print(data[0]);
 
 
+    //    if (handlingChapterFile != null)
+    //    {
+    //        StopCoroutine(handlingChapterFile);
+    //    }
 
-    }
+    //    handlingChapterFile = StartCoroutine(HandlingChapterFile());
+
+
+
+    //}
 
     //public void LoadGameFile(int gameFileNumber)
     //{
@@ -153,7 +156,7 @@ public class NovelController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Next();
         }
@@ -163,7 +166,7 @@ public class NovelController : MonoBehaviour
         //}
     }
 
-    void LoadChapterFile(string fileName)
+    public void LoadChapterFile(string fileName)
     {
         activeChapterFile = fileName;
         data = FileManager.LoadFile(FileManager.savePath + "Resources/Story/" + fileName);
@@ -372,12 +375,12 @@ public class NovelController : MonoBehaviour
         string[] data = action.Split('(', ')');
         switch (data[0])
         {
-            case "enter":
-                Command_Enter(data[1]);
-                break;
-            case "exit":
-                Command_Exit(data[1]);
-                break;
+            //case "enter":
+            //    Command_Enter(data[1]);
+            //    break;
+            //case "exit":
+            //    Command_Exit(data[1]);
+            //    break;
             case "setBackground":
                 Command_SetLayerImage(data[1], LayerController.instance.background);
                 break;
@@ -417,78 +420,75 @@ public class NovelController : MonoBehaviour
             case "next":
                 Next();
                 break;
+            case "exitDialogue":
+                ExitDialogue();
+                break;
+
 
         }
     }
 
-    void Command_Load(string chapterName)
-    {
-        DialogueManager.instance.Close();
-        NovelController.instance.LoadChapterFile(chapterName);
+    //void Command_Enter(string data)
+    //{
+    //    string[] parameters = data.Split(',');
+    //    string characterName = parameters[0];
+    //    string emotion = parameters[1];
+    //    float duration = parameters.Length == 4 ? float.Parse(parameters[3]) : 2f;
 
-    }
+    //    //Character character = CharacterManager.instance.GetCharacter(characterName, true, false);
+    //    //character.enabled = true;
+    //    //character.cg.alpha = 0f;
 
-    void Command_Enter(string data)
-    {
-        string[] parameters = data.Split(',');
-        string characterName = parameters[0];
-        string emotion = parameters[1];
-        float duration = parameters.Length == 4 ? float.Parse(parameters[3]) : 2f;
-
-        //Character character = CharacterManager.instance.GetCharacter(characterName, true, false);
-        //character.enabled = true;
-        //character.cg.alpha = 0f;
-
-        //Vector2 target = new Vector2(0, 0);
-        //if (parameters.Length >= 3)
-        //{
-        //    switch (parameters[2])
-        //    {
-        //        case "left":
-        //            target = CharacterManager.characterPositions.left;
-        //            break;
-        //        case "slightleft":
-        //            target = CharacterManager.characterPositions.slightleft;
-        //            break;
-        //        case "center":
-        //            target = CharacterManager.characterPositions.center;
-        //            break;
-        //        case "slightright":
-        //            target = CharacterManager.characterPositions.slightright;
-        //            break;
-        //        case "right":
-        //            target = CharacterManager.characterPositions.right;
-        //            break;
-        //    }
-        //}
-        //else
-        //{
-        //    target = CharacterManager.characterPositions.center;
-        //}
-        //character.SetPosition(target);
+    //    //Vector2 target = new Vector2(0, 0);
+    //    //if (parameters.Length >= 3)
+    //    //{
+    //    //    switch (parameters[2])
+    //    //    {
+    //    //        case "left":
+    //    //            target = CharacterManager.characterPositions.left;
+    //    //            break;
+    //    //        case "slightleft":
+    //    //            target = CharacterManager.characterPositions.slightleft;
+    //    //            break;
+    //    //        case "center":
+    //    //            target = CharacterManager.characterPositions.center;
+    //    //            break;
+    //    //        case "slightright":
+    //    //            target = CharacterManager.characterPositions.slightright;
+    //    //            break;
+    //    //        case "right":
+    //    //            target = CharacterManager.characterPositions.right;
+    //    //            break;
+    //    //    }
+    //    //}
+    //    //else
+    //    //{
+    //    //    target = CharacterManager.characterPositions.center;
+    //    //}
+    //    //character.SetPosition(target);
 
 
-        //character.FadeIn(emotion, duration);
+    //    //character.FadeIn(emotion, duration);
 
 
-    }
-    void Command_Exit(string data)
-    {
-        string[] parameters = data.Split(',');
-        string[] characters = parameters[0].Split(';');
-        float duration = parameters.Length == 2 ? float.Parse(parameters[1]) : 2f;
+    //}
+    //void Command_Exit(string data)
+    //{
+    //    string[] parameters = data.Split(',');
+    //    string[] characters = parameters[0].Split(';');
+    //    float duration = parameters.Length == 2 ? float.Parse(parameters[1]) : 2f;
 
-        //foreach (string s in characters)
-        //{
-        //    Character character = CharacterManager.instance.GetCharacter(s);
-        //    character.FadeOut(duration);
-        //    character.cg.alpha = 0f;
-        //    character.enabled = true;
+    //    //foreach (string s in characters)
+    //    //{
+    //    //    Character character = CharacterManager.instance.GetCharacter(s);
+    //    //    character.FadeOut(duration);
+    //    //    character.cg.alpha = 0f;
+    //    //    character.enabled = true;
 
-        //}
+    //    //}
 
 
-    }
+    //}
     //void Command_SetCharPosition(string data)
     //{
     //    if (data.Contains(","))
@@ -626,6 +626,17 @@ public class NovelController : MonoBehaviour
     //    character.Shake(time);
     //}
 
+    void ExitDialogue()
+    {
+        DialogueManager.instance.Close();
+    }
+
+    void Command_Load(string chapterName)
+    {
+        DialogueManager.instance.Close();
+        NovelController.instance.LoadChapterFile(chapterName);
+
+    }
 
     void Command_SetLayerImage(string data, LayerController.Layer layer)
     {
