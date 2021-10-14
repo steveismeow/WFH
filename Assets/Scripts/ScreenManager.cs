@@ -29,14 +29,28 @@ public class ScreenManager : MonoBehaviour
         mailWindow.SetActive(false);
         workWindow.SetActive(false);
 
-        meetingWindow.SetActive(true);
+        if (meetingWindow.activeSelf)
+        {
+            meetingWindow.SetActive(false);
+        }
+        else
+        {
+            meetingWindow.SetActive(true);
+        }
     }
     public void ActivateMailWindow()
     {
         meetingWindow.SetActive(false);
         workWindow.SetActive(false);
 
-        mailWindow.SetActive(true);
+        if (mailWindow.activeSelf)
+        {
+            mailWindow.SetActive(false);
+        }
+        else
+        {
+            mailWindow.SetActive(true);
+        }
     }
 
     public void ActivateWorkWindow()
@@ -44,7 +58,14 @@ public class ScreenManager : MonoBehaviour
         meetingWindow.SetActive(false);
         mailWindow.SetActive(false);
 
-        workWindow.SetActive(true);
+        if (workWindow.activeSelf)
+        {
+            workWindow.SetActive(false);
+        }
+        else
+        {
+            workWindow.SetActive(true);
+        }
     }
 
     public void DeactivateAllWindows()
