@@ -13,6 +13,9 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager instance;
     public ELEMENTS elements;
 
+    [SerializeField]
+    private ScreenManager screenManager;
+
     void Awake()
     {
         instance = this;
@@ -43,6 +46,9 @@ public class DialogueManager : MonoBehaviour
             textArchitect.Stop();
         }
         speaking = null;
+
+        screenManager.EnableButtonInteraction();
+
     }
 
     public bool isSpeaking { get { return speaking != null; } }
@@ -56,6 +62,9 @@ public class DialogueManager : MonoBehaviour
     IEnumerator Speaking(string dialogue, bool additive, string speaker = "")
     {
         dialoguePanel.SetActive(true);
+
+        screenManager.DisableButtonInteraction();
+
         string additiveDialogue = additive ? dialogueText.text : "";
         targetDialogue = additiveDialogue + dialogue;
 
