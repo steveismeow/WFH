@@ -21,7 +21,7 @@ public class DayManager : MonoBehaviour
         dayUI.dayNumber = 0;
         dayUI.SetDayOfTheWeek();
 
-        //StartDay();
+        StartDay();
     }
 
     public void AdvanceDay()

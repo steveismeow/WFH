@@ -38,7 +38,7 @@
   {
   "choose this option"
   character "dialogue in response", or
-  LoadChapter for loading a different txt file, or
+  Load(chapterName) for loading a different txt file, or
   AdditionalFunctions
   }
   //Need functionality for setting a PlayerData bool as well as

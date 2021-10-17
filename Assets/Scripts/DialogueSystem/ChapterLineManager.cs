@@ -144,12 +144,12 @@ public class ChapterLineManager : MonoBehaviour
 
                     //if (line.speaker != "player")
                     //{
-                    //    Character character = CharacterManager.instance.GetCharacter(line.speaker);
-                    //    character.Speak(targetDialogue, i > 0 ? true : pretext != "");
+
+                    //    DialogueManager.instance.Speak(targetDialogue, line.speaker, i > 0 ? true : pretext != "");
                     //}
                     //else
                     //{
-                    //    //line.speaker = "";
+                    //    //Tell the DialogueBox tmpro to set Italics
                     //    DialogueManager.instance.Speak(targetDialogue, line.speaker, i > 0 ? true : pretext != "");
                     //}
 

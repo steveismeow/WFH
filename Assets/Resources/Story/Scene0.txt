@@ -1,3 +1,22 @@
 
-player "Hey! {a} Aren't you [txtSpd 15,1]meeeeeeeeeee[/txtSpd]?"
-exitDialogue()
+player "This is narration"
+Derrick "This is Derrick"
+
+choice ""
+{
+"This is an option",
+player "This is a response to option 1",
+"This is another option"
+player "This is a response to option 2",
+}
+
+Derrick "Good choice"
+"What do you think of these?"
+
+choice ""
+{
+"this is option 1"
+Load(Scene0-1a),
+"this is option 2"
+Load(Scene0-1b),
+}
