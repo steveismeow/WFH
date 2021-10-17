@@ -21,25 +21,19 @@ public class MailManager : MonoBehaviour
 
     public void LoadInMail(string mailName)
     {
-
         print(mailName);
 
         foreach(GameObject mailObj in mailList)
         {
-            print(mailObj.name);
 
             if (mailObj.name == mailName)
             {
-                print("mailobj should be instantiated");
-
                 GameObject mailObject = Instantiate(mailObj, transform.position, Quaternion.identity);
                 mailObject.transform.SetParent(inbox, false);
                 mailObject.GetComponent<Mail>().mailManager = this;
             }
             else
             {
-                print("mailobj was not found");
-
                 return;
             }
         }
