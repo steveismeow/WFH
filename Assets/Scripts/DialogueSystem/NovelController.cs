@@ -633,7 +633,7 @@ public class NovelController : MonoBehaviour
 
     void Command_Load(string chapterName)
     {
-        DialogueManager.instance.Close();
+        //DialogueManager.instance.Close();
         NovelController.instance.LoadChapterFile(chapterName);
 
     }

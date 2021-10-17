@@ -132,10 +132,17 @@ public class ChoiceScreen : MonoBehaviour
     {
         GameObject ob = Instantiate(instance.choiceprefab.gameObject, instance.buttonContainer);
         ob.SetActive(true);
+
         ChoiceButton b = ob.GetComponent<ChoiceButton>();
 
         b.text = choice;
         b.choiceIndex = choices.Count;
+
+        //Button button = ob.GetComponent<Button>();
+
+        ////This currently sets the OnClick event during runtime (which the inspector does not reflect). Currently, the system utilizes a prefab in the scene.
+        ////But we can utilize this system if we start getting weird artificating or other issues. 
+        //button.onClick.AddListener(delegate { instance.MakeChoice(b); });
 
         choices.Add(b);
     }

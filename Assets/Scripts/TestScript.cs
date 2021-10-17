@@ -6,6 +6,10 @@ public class TestScript : MonoBehaviour
 {
     public DayManager dayManager;
 
+    private void Start()
+    {
+    }
+
     // Update is called once per frame
     void Update()
     {
