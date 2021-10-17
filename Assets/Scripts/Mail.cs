@@ -17,6 +17,12 @@ public class Mail : MonoBehaviour
 
     public MailManager mailManager;
 
+    public List<string> replies = new List<string>();
+
+    public bool hasReplied = false;
+
+    public string chosenReply = "";
+
     private void Start()
     {
         previewSender.SetText(sender);
@@ -26,23 +32,41 @@ public class Mail : MonoBehaviour
 
     public void SelectMailFromInbox()
     {
-        if (mailManager.bodyText.gameObject.activeSelf)
+        if (mailManager.bodyContent.activeSelf)
         {
-            mailManager.bodyText.sender.text = sender;
-            mailManager.bodyText.subject.text = subject;
-            mailManager.bodyText.mailText.text = mailTextPrefab.text;
         }
         else
         {
-            mailManager.bodyText.gameObject.SetActive(true);
-
-            mailManager.bodyText.sender.text = sender;
-            mailManager.bodyText.subject.text = subject;
-            mailManager.bodyText.mailText.text = mailTextPrefab.text;
-
+            mailManager.bodyContent.SetActive(true);
         }
 
+        mailManager.bodyText.sender.text = sender;
+        mailManager.bodyText.subject.text = subject;
+        mailManager.bodyText.mailText.text = mailTextPrefab.text;
+
+        mailManager.currentlyVisibleMail = this;
+
+        ClearReplyContent();
+        LoadReplyContent();
 
 
+
+    }
+
+    public void ClearReplyContent()
+    {
+        mailManager.ClearReplyContent();
+    }
+
+    public void LoadReplyContent()
+    {
+        if (hasReplied)
+        {
+            mailManager.LoadInReplyText(this);
+        }
+        else
+        {
+            mailManager.LoadInReplyButtons(this);
+        }
     }
 }
