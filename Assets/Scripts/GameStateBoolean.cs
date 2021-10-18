@@ -12,6 +12,8 @@ public class GameStateBoolean : MonoBehaviour
     MailManager MailScript;
 
 
+
+
     public GameObject bodyContent;
 
     // Morning email trigger booleans
@@ -26,6 +28,7 @@ public class GameStateBoolean : MonoBehaviour
     void Start()
     {
         processMorningMail();
+
     }
 
     // Update is called once per frame
@@ -70,6 +73,8 @@ public class GameStateBoolean : MonoBehaviour
         }
 
     }
+
+
 
 
 }
