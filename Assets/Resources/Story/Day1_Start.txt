@@ -1,0 +1,13 @@
+setForeground(black), next
+
+wait(2)
+
+player "Monday morning. {a} I better get started with my day."
+
+clearFG(0.1), next
+
+wait(2)
+
+player "I should check my email first"
+
+exitDialogue()

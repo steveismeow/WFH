@@ -5,9 +5,9 @@ Derrick "This is Derrick", next
 choice ""
 {
 "This is an option",
-player "This is a response to option 1",
+player "This is a response to option 1", plusPerformance(1),
 "This is another option"
-player "This is a response to option 2",
+player "This is a response to option 2", plusPerformance(5),
 }
 
 Derrick "Good choice"

@@ -1,7 +1,7 @@
 #Make a character speak
   characterName "dialogue"
   No name before dialogue means use last speaker
-  player "dialogue" = dialogue with no speaker
+  player "dialogue" = dialogue with no speaker (narration)
 
 #DIALOGUE COMMAND TAGS
 #use these tags to manipulate dialogue dynamics within a group of text
@@ -9,6 +9,9 @@
   {a} wait for input and add to the current text
   {w n} wait for n seconds and clear
   {wa n} wait for n seconds and add to the current text
+
+#Hold the game in a wait state
+  wait(n) close the dialogue window and wait for n seconds
 
 #Load a txt file and begin interpreting
   Load(chapterName)
@@ -20,6 +23,7 @@
   setBackground(imageName,speed,smooth)
   setCinematic(imageName,speed,smooth)
   setForeground(imageName,speed,smooth)
+  clearFG(transitionSpeed)
 
 #Play Sounds and Music
   playSound(soundName)
@@ -42,10 +46,9 @@ setTestBool(true/false);
   "choose this option"
   character "dialogue in response", or
   Load(chapterName) for loading a different txt file, or
-  AdditionalFunctions
+  insert other functions here
   }
-  //Need functionality for setting a PlayerData bool as well as
-  accessing future event data during random or scripted Events
+
 
 
   //CHARTACTER STUFF/////////////////////////////
