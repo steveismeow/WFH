@@ -1,6 +1,6 @@
 
 player "This is narration"
-Derrick "This is Derrick"
+Derrick "This is Derrick", next
 
 choice ""
 {
@@ -11,8 +11,9 @@ player "This is a response to option 2",
 }
 
 Derrick "Good choice"
-"What do you think of these?"
+"What do you think of these?", next
 
+next
 choice ""
 {
 "this is option 1"
