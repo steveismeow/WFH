@@ -15,9 +15,16 @@ public class MailManager : MonoBehaviour
 
     public BodyText bodyText;
 
-    public List<GameObject> mailList = new List<GameObject>();
+    public List<GameObject> auxMailList = new List<GameObject>();
 
     public Mail currentlyVisibleMail;
+
+    public List<GameObject> day1MorningMailList = new List<GameObject>();
+    public List<GameObject> day2MorningMailList = new List<GameObject>();
+    public List<GameObject> day3MorningMailList = new List<GameObject>();
+    public List<GameObject> day4MorningMailList = new List<GameObject>();
+    public List<GameObject> day5MorningMailList = new List<GameObject>();
+
 
 
 
@@ -25,7 +32,7 @@ public class MailManager : MonoBehaviour
     private Transform replyButtonContainer;
 
     [SerializeField]
-    private GameObject replyButtonPrefab, replyTextContainer;
+    private GameObject replyButtonPrefab, emailSignature;
 
     [SerializeField]
     private TMP_Text replyText;
@@ -36,7 +43,7 @@ public class MailManager : MonoBehaviour
     private void Start()
     {
         //This is a Test. Generally, each day we'll need to load in the relevant mail objects
-        LoadInMail("Day1_Boss");
+        LoadInMorningMail();
 
     }
 
@@ -49,7 +56,7 @@ public class MailManager : MonoBehaviour
     {
         print(mailName);
 
-        foreach(GameObject mailObj in mailList)
+        foreach(GameObject mailObj in auxMailList)
         {
             if (mailObj.name == mailName)
             {
@@ -65,10 +72,50 @@ public class MailManager : MonoBehaviour
         }
     }
 
+    public void LoadInMorningMail()
+    {
+        switch(DayManager.instance.dayNumber)
+        {
+            case 0:
+                PopulateInbox(day1MorningMailList);
+                break;
+            case 1:
+                PopulateInbox(day2MorningMailList);
+                break;
+            case 2:
+                PopulateInbox(day3MorningMailList);
+                break;
+            case 3:
+                PopulateInbox(day4MorningMailList);
+                break;
+            case 4:
+                PopulateInbox(day5MorningMailList);
+                break;
+
+        }
+
+        bodyContent.SetActive(false);
+    }
+
+    public void PopulateInbox(List<GameObject> mail)
+    {
+        foreach (GameObject mailObj in mail)
+        {
+            GameObject mailObject = Instantiate(mailObj, transform.position, Quaternion.identity);
+            mailObject.transform.SetParent(inbox, false);
+            Mail mailData = mailObject.GetComponent<Mail>();
+            mailData.mailManager = this;
+        }
+
+    }
+
+
     public void LoadInReplyButtons(Mail mailData)
     {
         replyButtonContainer.gameObject.SetActive(true);
-        replyTextContainer.SetActive(false);
+        replyText.gameObject.SetActive(false);
+        emailSignature.SetActive(false);
+
 
         foreach(string reply in mailData.replies)
         {
@@ -83,7 +130,8 @@ public class MailManager : MonoBehaviour
     public void LoadInReplyText(Mail mailData)
     {
         replyButtonContainer.gameObject.SetActive(false);
-        replyTextContainer.SetActive(true);
+        replyText.gameObject.SetActive(true);
+        emailSignature.SetActive(true);
 
         replyText.text = mailData.chosenReply;
     }
@@ -96,7 +144,8 @@ public class MailManager : MonoBehaviour
         ClearReplyContent();
 
         replyButtonContainer.gameObject.SetActive(false);
-        replyTextContainer.SetActive(true);
+        replyText.gameObject.SetActive(true);
+        emailSignature.SetActive(true);
         replyText.text = replyButtonText;
 
     }

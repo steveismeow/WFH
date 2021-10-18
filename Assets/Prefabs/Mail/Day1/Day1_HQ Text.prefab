@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &993450312047246389
+--- !u!1001 &7407039471778984256
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,13 +9,29 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6517711149023990141, guid: 4eb10bfba52779444a472046af4f0bc2, type: 3}
       propertyPath: m_text
-      value: "Good Morning, \n\nI appreciate your company sending you on such short
-        notice. Please link up with me in a video chat when you get in and I will
-        brief you on the project details. \n\nCheers,\n\nBoss"
+      value: "Dear [Player],\r\n\r\nThank you for your recent application. We are
+        pleased to invite you to join our team, as a short-term, remote HR Specialist.
+        [Products Incorporated] provides customer-focused solutions via our best-in-class
+        Product at competitive market rates to a diverse and global clientele.\r\nHere
+        at [Products Incorporated], we are proud to be a diverse collective of imaginative
+        thinkers, innovating cross-functional optimization initiatives to deliver
+        user value through product engagement. \r\n\r\nAs our HR Specialist, we will
+        need you to assist us in preparing our annual Company Culture Audit, which
+        will assess how the selected employees are invested into our company culture.
+        Through a series of interviews with five employees, who represent a cross-functional
+        team working at every level of the company, you will be responsible for providing
+        a longitudinal knowledge transfer that will help us design employee experiences
+        to interpret and reinforce our desired culture responsibilities. \r\n\r\nWe
+        at [Products Incorporated] understand the ineffectiveness of a top-down leadership
+        approach, and this Report will be an integral aspect of the re-development
+        of our company into an industry leader in peer-to-peer communication framework.
+        \r\n\r\nThank you for joining the [Products Incorporated] team. Be prepared
+        to meet with Bill Johnston at 9 A.M. on Monday. He will be awaiting your
+        call. \r\n\r\nThank you,\r\n\r\nHuman Resources\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 7229677893178976724, guid: 4eb10bfba52779444a472046af4f0bc2, type: 3}
       propertyPath: m_Name
-      value: Day1_Boss
+      value: Day1_HQ Text
       objectReference: {fileID: 0}
     - target: {fileID: 9172554712105755417, guid: 4eb10bfba52779444a472046af4f0bc2, type: 3}
       propertyPath: m_Pivot.x
