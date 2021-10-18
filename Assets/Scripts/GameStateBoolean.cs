@@ -31,7 +31,7 @@ public class GameStateBoolean : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void processMorningMail()
@@ -40,31 +40,31 @@ public class GameStateBoolean : MonoBehaviour
         MailScript = mailManager.GetComponent<MailManager>();
 
         // if has opened Day1_Start mail = true
-        if (MailScript.day1MorningMailList.Count == true)
+        if (MailScript.day1MorningMailList.Count > 0)
         {
             day1MorningMail = true;
         }
 
         // if has opened Day2_Start mail = true
-        if (MailScript.day2MorningMailList.Count == true)
+        if (MailScript.day2MorningMailList.Count > 0)
         {
             day2MorningMail = true;
         }
 
         // if has opened Day3_Start mail = true
-        if (MailScript.day3MorningMailList.Count == true)
+        if (MailScript.day3MorningMailList.Count > 0)
         {
             day3MorningMail = true;
         }
 
         // if has opened Day4_Start mail = true
-        if (MailScript.day4MorningMailList.Count == true)
+        if (MailScript.day4MorningMailList.Count > 0)
         {
             day4MorningMail = true;
         }
 
         // if has opened Day5_Start mail = true
-        if (MailScript.day5MorningMailList.Count == true)
+        if (MailScript.day5MorningMailList.Count > 0)
         {
             day5MorningMail = true;
         }
