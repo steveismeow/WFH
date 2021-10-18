@@ -39,7 +39,7 @@ public class DayManager : MonoBehaviour
         switch (dayUI.dayNumber)
         {
             case 0:
-                NovelController.instance.LoadChapterFile("Scene0");
+                NovelController.instance.LoadChapterFile("Day1_Start");
                 break;
             case 1:
                 NovelController.instance.LoadChapterFile("Scene0");

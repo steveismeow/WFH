@@ -375,6 +375,10 @@ public class NovelController : MonoBehaviour
         string[] data = action.Split('(', ')');
         switch (data[0])
         {
+            case "wait":
+                Command_Wait(data[1]);
+                break;
+
             //case "enter":
             //    Command_Enter(data[1]);
             //    break;
@@ -389,6 +393,9 @@ public class NovelController : MonoBehaviour
                 break;
             case "setCinematic":
                 Command_SetLayerImage(data[1], LayerController.instance.cinematic);
+                break;
+            case "clearFG":
+                Command_ClearFGLayer(data[1], LayerController.instance.foreground);
                 break;
             case "plusPerformance":
                 Command_PlusPerformance(data[1]);
@@ -633,6 +640,21 @@ public class NovelController : MonoBehaviour
     //    character.Shake(time);
     //}
 
+    void Command_Wait(string data)
+    {
+        float waitTime = float.Parse(data);
+        Coroutine waiting = StartCoroutine(Waiting(waitTime));
+    }
+
+    IEnumerator Waiting(float waitTIme)
+    {
+        DialogueManager.instance.Close();
+
+        yield return new WaitForSeconds(waitTIme);
+
+        Next();
+    }
+
     void ExitDialogue()
     {
         DialogueManager.instance.Close();
@@ -662,7 +684,6 @@ public class NovelController : MonoBehaviour
         float speed = 2f;
         bool smooth = true;
 
-
         //CURRENT CHECK IS ONLY FOR TRANSITION SPEED, ADDITIONAL BOOLS AND VARIABLES MAY BE INTEGRATED AS NECESSARY
         if (data.Contains(","))
         {
@@ -685,9 +706,13 @@ public class NovelController : MonoBehaviour
                 }
             }
         }
-
         layer.SetTexture(texture, speed);
+    }
 
+    void Command_ClearFGLayer(string data, LayerController.Layer layer)
+    {
+        float transitionSpeed = float.Parse(data);
+        layer.ClearLayer(transitionSpeed);
     }
 
     void Command_PlayMusic(string data)

@@ -44,16 +44,16 @@ public class LayerController : MonoBehaviour
             CreateGraphic(clip, useAudio);
         }
 
-        public void ClearLayer()
+        public void ClearLayer(float transitionSpeed)
         {
             if (currentGraphic != null && !currentGraphic.isNull)
             {
-                currentGraphic.Disable();
+                currentGraphic.Disable(transitionSpeed);
             }
 
             foreach (GraphicObject graphic in oldGraphics)
             {
-                graphic.Disable();
+                graphic.Disable(transitionSpeed);
             }
         }
 
