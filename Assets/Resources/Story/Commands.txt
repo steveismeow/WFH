@@ -32,6 +32,9 @@
   [txtSpd delay,charactersPerFrame] - change architect speed
     [/txtSpd] - return to normal speed
 
+#Adjusting PlayerData
+plusPerformance(i)
+setTestBool(true/false);
 
 #Make a choice
   choice "header text"

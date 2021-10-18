@@ -390,7 +390,14 @@ public class NovelController : MonoBehaviour
             case "setCinematic":
                 Command_SetLayerImage(data[1], LayerController.instance.cinematic);
                 break;
-            case "setCharPosition":
+            case "plusPerformance":
+                Command_PlusPerformance(data[1]);
+                break;
+            case "setTestBool":
+                Command_SetTestBool(data[1]);
+                break;
+
+            //case "setCharPosition":
             //    Command_SetCharPosition(data[1]);//(name, position)
             //    break;
             //case "move":
@@ -637,6 +644,16 @@ public class NovelController : MonoBehaviour
         NovelController.instance.LoadChapterFile(chapterName);
 
     }
+
+    void Command_PlusPerformance(string data)
+    {
+        int i =int.Parse(data);
+        PlayerData.instance.performance += i;
+    }
+
+    void Command_SetTestBool(string data)
+    {
+        PlayerData.instance.testBool = bool.Parse(data);    }
 
     void Command_SetLayerImage(string data, LayerController.Layer layer)
     {

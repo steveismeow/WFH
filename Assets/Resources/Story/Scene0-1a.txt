@@ -1,1 +1,3 @@
+plusPerformance(1), setTestBool(true), next
+
 player "This is the dialogue scene for option 1"
