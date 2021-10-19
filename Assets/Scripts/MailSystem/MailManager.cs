@@ -52,6 +52,8 @@ public class MailManager : MonoBehaviour
     // MailObject OnClick will load in the replies to the Reply Container in order to generate buttons with each reply string.
 
 
+
+
     public void LoadInMail(string mailName)
     {
         print(mailName);
