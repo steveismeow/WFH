@@ -10,7 +10,7 @@ public class WorkManager : MonoBehaviour
 
     public GameObject workBodyContent;
 
-    public BodyText workBodyText;
+    public WorkBodyText workBodyText;
 
 
     public List<GameObject> auxiliaryTaskList = new List<GameObject>();
@@ -27,9 +27,22 @@ public class WorkManager : MonoBehaviour
 
 
 
+    // Format in MailManager was "repky__" -- ie replyButtonContaineer, etc.
+    // For the WorkManager, idea is you are choosing from a list of options as to how you complete your task, so I'm trying "taskChoice_" for the formatting.
+    [SerializeField]
+    private Transform taskChoiceButtonContainer;
+
+    [SerializeField]
+    private GameObject taskChoiceButtonPrefab;
+    //emailSignature;
+
+    [SerializeField]
+    private TMP_Text taskChoiceText;
+
+
     private void Start()
     {
-        //This is a Test. Generally, each day we'll need to load in the relevant mail objects
+        //This is a Test. Generally, each day we'll need to load in the relevant task objects
         LoadInTask();
 
     }
@@ -78,10 +91,10 @@ public class WorkManager : MonoBehaviour
 
         }
 
-        bodyContent.SetActive(false);
+        workBodyContent.SetActive(false);
     }
 
-    public void PopulateTasks(List<GameObject> task)
+    public void PopulateTasks(List<GameObject> taskList)
     {
         foreach (GameObject taskObj in taskList)
         {
@@ -91,6 +104,61 @@ public class WorkManager : MonoBehaviour
             taskData.workManager = this;
         }
 
+    }
+
+
+    // Creates the buttons the player can choose from when working on a task
+    public void LoadInTaskChoiceButtons(Form taskData)
+    {
+        taskChoiceButtonContainer.gameObject.SetActive(true);
+        taskChoiceText.gameObject.SetActive(false);
+        //emailSignature.SetActive(false);
+
+
+        foreach (string taskChoice in taskData.choices)
+        {
+            // taskChoiceButtonPrefab uses the TestReplyButton prefab
+            GameObject taskChoiceButton = Instantiate(taskChoiceButtonPrefab, transform.position, Quaternion.identity);
+            taskChoiceButton.transform.SetParent(taskChoiceButtonContainer, false);
+            taskChoiceButton.GetComponent<TaskChoiceButton>().workManager = this;
+
+            taskChoiceButton.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = taskChoice;
+        }
+    }
+
+    public void LoadInTaskChoiceText(Form taskData)
+    {
+        taskChoiceButtonContainer.gameObject.SetActive(false);
+        taskChoiceText.gameObject.SetActive(true);
+        //emailSignature.SetActive(true);
+
+        taskChoiceText.text = taskData.chosenTaskChoice;
+    }
+
+    public void ChooseTaskChoice(string taskChoiceButtonText)
+    {
+        // Boolean for checking wether or not you've chosen a task uses ChosenTask format instead of TaskChoice format, not sure if it needs correction
+        currentlyVisibleTask.hasChosenTask = true;
+        currentlyVisibleTask.chosenTaskChoice = taskChoiceButtonText;
+
+        ClearTaskChoiceContent();
+
+        taskChoiceButtonContainer.gameObject.SetActive(false);
+        taskChoiceText.gameObject.SetActive(true);
+        //emailSignature.SetActive(true);
+        taskChoiceText.text = taskChoiceButtonText;
+
+    }
+
+    public void ClearTaskChoiceContent()
+    {
+        taskChoiceText.text = "";
+        print(taskChoiceButtonContainer.transform.childCount);
+
+        foreach (Transform child in taskChoiceButtonContainer.transform)
+        {
+            Destroy(child.gameObject);
+        }
     }
 
 }

@@ -310,6 +310,9 @@ MonoBehaviour:
   subject: Test
   mailTextPrefab: {fileID: 6517711149023990141, guid: 4eb10bfba52779444a472046af4f0bc2, type: 3}
   mailManager: {fileID: 0}
+  replies: []
+  hasReplied: 0
+  chosenReply: 
 --- !u!1 &2332593653365105831
 GameObject:
   m_ObjectHideFlags: 0
