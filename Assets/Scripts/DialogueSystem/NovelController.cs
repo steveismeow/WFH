@@ -403,25 +403,15 @@ public class NovelController : MonoBehaviour
             case "setTestBool":
                 Command_SetTestBool(data[1]);
                 break;
-
-            //case "setCharPosition":
-            //    Command_SetCharPosition(data[1]);//(name, position)
-            //    break;
-            //case "move":
-            //    Command_MoveCharacter(data[1]);//(name, position, speed, smooth)
-            //    break;
-            //case "flip":
-            //    Command_FlipSprite(data[1]);
-            //    break;
-            //case "faceLeft":
-            //    Command_FaceLeft(data[1]);
-            //    break;
-            //case "faceRight":
-            //    Command_FaceRight(data[1]);
-            //    break;
-            //case "setExpression":
-            //    Command_SetExpression(data[1]);
-            //    break;
+            case "setMeetingUp":
+                Command_SetMeetingUp(data[1]);
+                break;
+            case "endMeeting":
+                Command_EndMeeting();
+                break;
+            case "playAnim":
+                Command_PlayAnimation(data[1]);
+                break;
             case "playMusic":
                 Command_PlayMusic(data[1]);
                 break;
@@ -442,203 +432,6 @@ public class NovelController : MonoBehaviour
         }
     }
 
-    //void Command_Enter(string data)
-    //{
-    //    string[] parameters = data.Split(',');
-    //    string characterName = parameters[0];
-    //    string emotion = parameters[1];
-    //    float duration = parameters.Length == 4 ? float.Parse(parameters[3]) : 2f;
-
-    //    //Character character = CharacterManager.instance.GetCharacter(characterName, true, false);
-    //    //character.enabled = true;
-    //    //character.cg.alpha = 0f;
-
-    //    //Vector2 target = new Vector2(0, 0);
-    //    //if (parameters.Length >= 3)
-    //    //{
-    //    //    switch (parameters[2])
-    //    //    {
-    //    //        case "left":
-    //    //            target = CharacterManager.characterPositions.left;
-    //    //            break;
-    //    //        case "slightleft":
-    //    //            target = CharacterManager.characterPositions.slightleft;
-    //    //            break;
-    //    //        case "center":
-    //    //            target = CharacterManager.characterPositions.center;
-    //    //            break;
-    //    //        case "slightright":
-    //    //            target = CharacterManager.characterPositions.slightright;
-    //    //            break;
-    //    //        case "right":
-    //    //            target = CharacterManager.characterPositions.right;
-    //    //            break;
-    //    //    }
-    //    //}
-    //    //else
-    //    //{
-    //    //    target = CharacterManager.characterPositions.center;
-    //    //}
-    //    //character.SetPosition(target);
-
-
-    //    //character.FadeIn(emotion, duration);
-
-
-    //}
-    //void Command_Exit(string data)
-    //{
-    //    string[] parameters = data.Split(',');
-    //    string[] characters = parameters[0].Split(';');
-    //    float duration = parameters.Length == 2 ? float.Parse(parameters[1]) : 2f;
-
-    //    //foreach (string s in characters)
-    //    //{
-    //    //    Character character = CharacterManager.instance.GetCharacter(s);
-    //    //    character.FadeOut(duration);
-    //    //    character.cg.alpha = 0f;
-    //    //    character.enabled = true;
-
-    //    //}
-
-
-    //}
-    //void Command_SetCharPosition(string data)
-    //{
-    //    if (data.Contains(","))
-    //    {
-    //        string[] parameters = data.Split(',');
-
-    //        Character character = CharacterManager.instance.GetCharacter(parameters[0]);
-
-    //        Vector2 target = new Vector2(0, 0);
-
-    //        if (parameters[1] == "left")
-    //        {
-    //            target = CharacterManager.characterPositions.left;
-    //        }
-    //        if (parameters[1] == "slightleft")
-    //        {
-    //            target = CharacterManager.characterPositions.slightleft;
-    //        }
-    //        if (parameters[1] == "center")
-    //        {
-    //            target = CharacterManager.characterPositions.center;
-    //        }
-    //        if (parameters[1] == "slightright")
-    //        {
-    //            target = CharacterManager.characterPositions.slightright;
-    //        }
-    //        if (parameters[1] == "right")
-    //        {
-    //            target = CharacterManager.characterPositions.right;
-    //        }
-    //        print(target);
-
-    //        character.SetPosition(target);
-    //    }
-
-
-    //}
-
-    //void Command_MoveCharacter(string data)
-    //{
-    //    if (data.Contains(","))
-    //    {
-    //        string[] parameters = data.Split(',');
-
-    //        Character character = CharacterManager.instance.GetCharacter(parameters[0]);
-    //        Vector2 target = new Vector2(0, 0);
-
-    //        if (parameters[1] == "left")
-    //        {
-    //            target = CharacterManager.characterPositions.left;
-    //        }
-    //        if (parameters[1] == "slightleft")
-    //        {
-    //            target = CharacterManager.characterPositions.slightleft;
-    //        }
-    //        if (parameters[1] == "center")
-    //        {
-    //            target = CharacterManager.characterPositions.center;
-    //        }
-    //        if (parameters[1] == "slightright")
-    //        {
-    //            target = CharacterManager.characterPositions.slightright;
-    //        }
-    //        if (parameters[1] == "right")
-    //        {
-    //            target = CharacterManager.characterPositions.right;
-    //        }
-
-    //        float speed = parameters.Length >= 3 ? float.Parse(parameters[2]) : 1f;
-    //        bool smooth = parameters.Length == 4 ? bool.Parse(parameters[3]) : true;
-
-    //        character.Move(target, speed, smooth);
-    //    }
-
-    //}
-
-    //void Command_SetExpression(string data)
-    //{
-    //    string[] parameters = data.Split(',');
-    //    string characterName = parameters[0];
-    //    string expression = parameters[1];
-    //    float speed = parameters.Length >= 3 ? float.Parse(parameters[3]) : 10f;
-    //    bool smooth = parameters.Length == 4 ? bool.Parse(parameters[3]) : true;
-
-    //    Character character = CharacterManager.instance.GetCharacter(characterName);
-    //    Sprite sprite = character.GetSprite(expression);
-    //    character.TransitionExpression(sprite, speed, smooth);
-    //}
-
-    //void Command_FlipSprite(string data)
-    //{
-    //    string[] characters = data.Split(',');
-
-    //    foreach (string s in characters)
-    //    {
-    //        Character character = CharacterManager.instance.GetCharacter(s);
-
-    //        character.FlipSprite();
-
-    //    }
-    //}
-
-    //void Command_FaceLeft(string data)
-    //{
-    //    string[] characters = data.Split(',');
-
-    //    foreach (string s in characters)
-    //    {
-    //        Character character = CharacterManager.instance.GetCharacter(s);
-
-    //        character.FaceLeft();
-
-    //    }
-    //}
-
-    //void Command_FaceRight(string data)
-    //{
-    //    string[] characters = data.Split(',');
-
-    //    foreach (string s in characters)
-    //    {
-    //        Character character = CharacterManager.instance.GetCharacter(s);
-
-    //        character.FaceRight();
-
-    //    }
-    //}
-
-    //void Command_ShakeSprite(string data)
-    //{
-    //    string[] parameters = data.Split(',');
-    //    string characterName = parameters[0];
-    //    float time = parameters[1];
-    //    Character character = CharacterManager.instance.GetCharacter(characterName);
-    //    character.Shake(time);
-    //}
 
     void Command_Wait(string data)
     {
@@ -665,6 +458,31 @@ public class NovelController : MonoBehaviour
         //DialogueManager.instance.Close();
         NovelController.instance.LoadChapterFile(chapterName);
 
+    }
+
+    void Command_SetMeetingUp(string data)
+    {
+        print(data);
+
+        string[] parameters = data.Split(',');
+
+        print(parameters[1]);
+
+        //This is doing a weird thing somehow
+        GameObject character = MeetingManager.instance.IdentifyCharacter(parameters[0]);
+
+        MeetingManager.instance.SetMeetingDetails(character, parameters[1]);
+
+    }
+
+    void Command_EndMeeting()
+    {
+        MeetingManager.instance.EndMeeting();
+    }
+
+    void Command_PlayAnimation(string animStateName)
+    {
+        MeetingManager.instance.PlayAnimation(animStateName);
     }
 
     void Command_PlusPerformance(string data)

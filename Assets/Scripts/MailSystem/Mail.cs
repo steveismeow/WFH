@@ -6,22 +6,33 @@ using TMPro;
 
 public class Mail : MonoBehaviour
 {
+    public MailManager mailManager; 
+
     public TMP_Text previewSender;
     public TMP_Text previewSubject;
     public TMP_Text previewText;
-
 
     public string sender;
     public string subject;
     public TMP_Text mailTextPrefab;
 
-    public MailManager mailManager;
-
+    //Replies
     public List<string> replies = new List<string>();
 
     public bool hasReplied = false;
 
     public string chosenReply = "";
+
+    //Bool Checks
+    [SerializeField]
+    private bool startsMeeting;
+    [SerializeField]
+    private string meetingChar, meetingName;
+
+    [SerializeField]
+    private bool startsDialogue;
+    [SerializeField]
+    private string dialogueName; 
 
     private void Start()
     {
@@ -49,7 +60,7 @@ public class Mail : MonoBehaviour
         ClearReplyContent();
         LoadReplyContent();
 
-
+        CheckForBools();
 
     }
 
@@ -67,6 +78,23 @@ public class Mail : MonoBehaviour
         else
         {
             mailManager.LoadInReplyButtons(this);
+        }
+    }
+
+    public void CheckForBools()
+    {
+        if (startsMeeting)
+        {
+            var character = MeetingManager.instance.IdentifyCharacter(meetingChar);
+            MeetingManager.instance.SetMeetingDetails(character, meetingName);
+        }
+        else if (startsDialogue)
+        {
+            NovelController.instance.LoadChapterFile(dialogueName);
+        }
+        else
+        {
+            return;
         }
     }
 }

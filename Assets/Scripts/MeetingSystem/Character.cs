@@ -9,4 +9,6 @@ public class Character : MonoBehaviour
     public SpriteRenderer spriteRenderer;
 
     public Animator animator;
+
+    public Sprite background;
 }
