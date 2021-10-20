@@ -52,6 +52,11 @@ public class DayManager : MonoBehaviour
     {
         //Normal start day actions prior to any dialogue (i.e. fade in, etc.)
 
+        MeetingManager.instance.StartUp();
+        MailManager.instance.StartUp();
+        //WorkManager.instance.StartUp();
+
+
         switch (dayUI.dayNumber)
         {
             case 0:

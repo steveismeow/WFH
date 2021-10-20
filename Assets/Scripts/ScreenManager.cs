@@ -36,6 +36,7 @@ public class ScreenManager : MonoBehaviour
         else
         {
             meetingWindow.SetActive(true);
+            MeetingManager.instance.OnScreenOpen();
         }
     }
     public void ActivateMailWindow()

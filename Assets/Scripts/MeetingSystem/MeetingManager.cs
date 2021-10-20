@@ -30,21 +30,30 @@ public class MeetingManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+    }
 
+    //put on the screen canvas
+    public void OnScreenOpen()
+    {
+        if (queuedMeeting != "")
+        {
+            //if a meeting is queued, set the button to active
+            print("Queued meeting is not null");
+
+            startMeetingButton.SetActive(true);
+        }
+
+    }
+
+    public void StartUp()
+    {
         foreach (Transform child in characterPool.transform)
         {
             characters.Add(child.gameObject);
         }
 
         startMeetingButton.SetActive(false);
-    }
-
-    private void OnEnable()
-    {
-        if (queuedMeeting != "")
-        {
-            startMeetingButton.SetActive(true);
-        }
+        notificationTag.SetActive(false);
 
     }
 
