@@ -19,6 +19,7 @@ public class Mail : MonoBehaviour
     //Replies
     public List<string> replies = new List<string>();
 
+    public bool hasOpened = false;
     public bool hasReplied = false;
 
     public string chosenReply = "";
@@ -51,11 +52,18 @@ public class Mail : MonoBehaviour
             mailManager.bodyContent.SetActive(true);
         }
 
+        if (!hasOpened)
+        {
+            hasOpened = true;
+        }
+
         mailManager.bodyText.sender.text = sender;
         mailManager.bodyText.subject.text = subject;
         mailManager.bodyText.mailText.text = mailTextPrefab.text;
 
         mailManager.currentlyVisibleMail = this;
+
+        mailManager.UpdateNotifications();
 
         ClearReplyContent();
         LoadReplyContent();
@@ -83,12 +91,12 @@ public class Mail : MonoBehaviour
 
     public void CheckForBools()
     {
-        if (startsMeeting)
+        if (hasOpened && startsMeeting)
         {
             var character = MeetingManager.instance.IdentifyCharacter(meetingChar);
             MeetingManager.instance.SetMeetingDetails(character, meetingName);
         }
-        else if (startsDialogue)
+        else if (hasOpened && startsDialogue)
         {
             NovelController.instance.LoadChapterFile(dialogueName);
         }

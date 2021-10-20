@@ -16,6 +16,9 @@ public class MeetingManager : MonoBehaviour
     [SerializeField]
     private Sprite defaultBackground;
 
+    [SerializeField]
+    private GameObject notificationTag;
+
     private string queuedMeeting;
 
 
@@ -27,14 +30,22 @@ public class MeetingManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-    }
 
-    private void Start()
-    {
         foreach (Transform child in characterPool.transform)
         {
             characters.Add(child.gameObject);
         }
+
+        startMeetingButton.SetActive(false);
+    }
+
+    private void OnEnable()
+    {
+        if (queuedMeeting != "")
+        {
+            startMeetingButton.SetActive(true);
+        }
+
     }
 
 
@@ -50,13 +61,15 @@ public class MeetingManager : MonoBehaviour
         //set the queued meeting
         queuedMeeting = meetingName;
 
-        //activate StartMeetingButton
-        startMeetingButton.SetActive(true);
+  
+        notificationTag.SetActive(true);
     }
 
     public void StartMeeting()
     {
         startMeetingButton.SetActive(false);
+
+        notificationTag.SetActive(false);
 
         //Need to debug this line
         background.sprite = currentCharacter.background;
@@ -77,6 +90,8 @@ public class MeetingManager : MonoBehaviour
         background.sprite = defaultBackground;
 
         currentCharacter.gameObject.SetActive(false);
+
+        queuedMeeting = "";
     }
 
     public GameObject IdentifyCharacter(string name)

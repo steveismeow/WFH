@@ -25,8 +25,8 @@ public class MailManager : MonoBehaviour
     public List<GameObject> day4MorningMailList = new List<GameObject>();
     public List<GameObject> day5MorningMailList = new List<GameObject>();
 
-
-
+    [SerializeField]
+    private GameObject notificationTag;
 
     [SerializeField]
     private Transform replyButtonContainer;
@@ -42,8 +42,11 @@ public class MailManager : MonoBehaviour
 
     private void Start()
     {
+
         //This is a Test. Generally, each day we'll need to load in the relevant mail objects
         LoadInMorningMail();
+
+        notificationTag.SetActive(false);
 
     }
 
@@ -70,6 +73,8 @@ public class MailManager : MonoBehaviour
 
             }
         }
+
+        //UpdateNotifications();
     }
 
     public void LoadInMorningMail()
@@ -95,6 +100,8 @@ public class MailManager : MonoBehaviour
         }
 
         bodyContent.SetActive(false);
+
+        //UpdateNotifications();
     }
 
     public void PopulateInbox(List<GameObject> mail)
@@ -159,5 +166,35 @@ public class MailManager : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+    }
+
+    public void UpdateNotifications()
+    {
+        int notifications = 0;
+
+        foreach (Transform child in inbox)
+        {
+            if (child.gameObject.GetComponent<Mail>().hasOpened)
+            {
+                notifications++;
+            }
+            else
+            {
+                continue;
+            }
+        }
+
+        if (notifications >= 0)
+        {
+            notificationTag.SetActive(true);
+            notificationTag.GetComponent<TMP_Text>().text = notifications.ToString();
+            print(notifications);
+        }
+        else
+        {
+            return;
+        }
+
+
     }
 }
