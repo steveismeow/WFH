@@ -52,31 +52,8 @@ public class MailManager : MonoBehaviour
     public void StartUp()
     {
         LoadInMorningMail();
-
-        UpdateNotifications();
-
     }
 
-    public void LoadInMail(string mailName)
-    {
-
-        foreach(GameObject mailObj in auxMailList)
-        {
-            if (mailObj.name == mailName)
-            {
-                GameObject mailObject = Instantiate(mailObj, transform.position, Quaternion.identity);
-                mailObject.transform.SetParent(inbox, false);
-                Mail mailData = mailObject.GetComponent<Mail>();
-                mailData.MailManagerinstance = this;
-            }
-            else
-            {
-
-            }
-        }
-
-        UpdateNotifications();
-    }
 
     public void LoadInMorningMail()
     {
@@ -101,6 +78,24 @@ public class MailManager : MonoBehaviour
         }
 
         bodyContent.SetActive(false);
+    }
+
+    public void LoadInMail(string mailName)
+    {
+
+        foreach(GameObject mailObj in auxMailList)
+        {
+            if (mailObj.name == mailName)
+            {
+                GameObject mailObject = Instantiate(mailObj, transform.position, Quaternion.identity);
+                mailObject.transform.SetParent(inbox, false);
+                Mail mailData = mailObject.GetComponent<Mail>();
+            }
+            else
+            {
+
+            }
+        }
 
         UpdateNotifications();
     }
@@ -112,11 +107,34 @@ public class MailManager : MonoBehaviour
             GameObject mailObject = Instantiate(mailObj, transform.position, Quaternion.identity);
             mailObject.transform.SetParent(inbox, false);
             Mail mailData = mailObject.GetComponent<Mail>();
-            mailData.MailManagerinstance = this;
         }
 
+        UpdateNotifications();
     }
 
+    public void UpdateNotifications()
+    {
+        int notifications = 0;
+
+        foreach (Transform child in inbox)
+        {
+
+            if (!child.gameObject.GetComponent<Mail>().hasOpened)
+            {
+                notifications += 1;
+            }
+        }
+
+        if (notifications > 0)
+        {
+            notificationTag.SetActive(true);
+            notificationTag.GetComponent<TMP_Text>().text = notifications.ToString();
+        }
+        else
+        {
+            notificationTag.SetActive(false);
+        }
+    }
 
     public void LoadInReplyButtons(Mail mailData)
     {
@@ -168,37 +186,4 @@ public class MailManager : MonoBehaviour
         }
     }
 
-    public void UpdateNotifications()
-    {
-        print("Updating mail notifications!");
-
-        int notifications = 0;
-
-        foreach (Transform child in inbox)
-        {
-
-            if (child.gameObject.GetComponent<Mail>().hasOpened)
-            {
-                notifications += 1;
-            }
-            //else
-            //{
-            //    continue;
-            //}
-        }
-
-        print(notifications);
-
-        if (notifications >= 0)
-        {
-            notificationTag.SetActive(true);
-            notificationTag.GetComponent<TMP_Text>().text = notifications.ToString();
-        }
-        else
-        {
-            notificationTag.SetActive(false);
-        }
-
-
-    }
 }

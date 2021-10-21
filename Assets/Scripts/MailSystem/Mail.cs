@@ -6,8 +6,6 @@ using TMPro;
 
 public class Mail : MonoBehaviour
 {
-    public MailManager MailManagerinstance; 
-
     public TMP_Text previewSender;
     public TMP_Text previewSubject;
     public TMP_Text previewText;
