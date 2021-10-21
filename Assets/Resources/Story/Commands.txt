@@ -29,16 +29,23 @@
   playSound(soundName)
   playMusic(musicName)
 
-                  //#Shake character side to side
-                  //  shake(characterName,time)
-
 #Dialogue Events
   [txtSpd delay,charactersPerFrame] - change architect speed
     [/txtSpd] - return to normal speed
 
 #Adjusting PlayerData
-plusPerformance(i)
-setTestBool(true/false);
+  plusPerformance(i)
+  setTestBool(true/false);
+
+#Setting up a meeting in the meeting window
+  setMeetingUp(charactersFirstName,MeetingTextFileName)
+
+#Ending a meeting
+  endMeeting()
+
+#During a meeting, tell the Character what animation to player
+  playAnim(animStateName)
+
 
 #Make a choice
   choice "header text"

@@ -9,6 +9,8 @@ using TMPro;
 /// </summary>
 public class MailManager : MonoBehaviour
 {
+    public static MailManager instance;
+
     public Transform inbox;
 
     public GameObject bodyContent;
@@ -25,8 +27,8 @@ public class MailManager : MonoBehaviour
     public List<GameObject> day4MorningMailList = new List<GameObject>();
     public List<GameObject> day5MorningMailList = new List<GameObject>();
 
-
-
+    [SerializeField]
+    private GameObject notificationTag;
 
     [SerializeField]
     private Transform replyButtonContainer;
@@ -38,41 +40,20 @@ public class MailManager : MonoBehaviour
     private TMP_Text replyText;
 
 
-
-
-    private void Start()
+    private void Awake()
     {
-        //This is a Test. Generally, each day we'll need to load in the relevant mail objects
-        LoadInMorningMail();
-
+        instance = this;
     }
 
     // Reply Container will house buttons with reply options before you have replied.
     // Mail Manager will have a reference to this object.
     // MailObject OnClick will load in the replies to the Reply Container in order to generate buttons with each reply string.
 
-
-
-
-    public void LoadInMail(string mailName)
+    public void StartUp()
     {
-        print(mailName);
-
-        foreach(GameObject mailObj in auxMailList)
-        {
-            if (mailObj.name == mailName)
-            {
-                GameObject mailObject = Instantiate(mailObj, transform.position, Quaternion.identity);
-                mailObject.transform.SetParent(inbox, false);
-                Mail mailData = mailObject.GetComponent<Mail>();
-                mailData.mailManager = this;
-            }
-            else
-            {
-
-            }
-        }
+        LoadInMorningMail();
     }
+
 
     public void LoadInMorningMail()
     {
@@ -99,6 +80,26 @@ public class MailManager : MonoBehaviour
         bodyContent.SetActive(false);
     }
 
+    public void LoadInMail(string mailName)
+    {
+
+        foreach(GameObject mailObj in auxMailList)
+        {
+            if (mailObj.name == mailName)
+            {
+                GameObject mailObject = Instantiate(mailObj, transform.position, Quaternion.identity);
+                mailObject.transform.SetParent(inbox, false);
+                Mail mailData = mailObject.GetComponent<Mail>();
+            }
+            else
+            {
+
+            }
+        }
+
+        UpdateNotifications();
+    }
+
     public void PopulateInbox(List<GameObject> mail)
     {
         foreach (GameObject mailObj in mail)
@@ -106,11 +107,34 @@ public class MailManager : MonoBehaviour
             GameObject mailObject = Instantiate(mailObj, transform.position, Quaternion.identity);
             mailObject.transform.SetParent(inbox, false);
             Mail mailData = mailObject.GetComponent<Mail>();
-            mailData.mailManager = this;
         }
 
+        UpdateNotifications();
     }
 
+    public void UpdateNotifications()
+    {
+        int notifications = 0;
+
+        foreach (Transform child in inbox)
+        {
+
+            if (!child.gameObject.GetComponent<Mail>().hasOpened)
+            {
+                notifications += 1;
+            }
+        }
+
+        if (notifications > 0)
+        {
+            notificationTag.SetActive(true);
+            notificationTag.GetComponent<TMP_Text>().text = notifications.ToString();
+        }
+        else
+        {
+            notificationTag.SetActive(false);
+        }
+    }
 
     public void LoadInReplyButtons(Mail mailData)
     {
@@ -155,11 +179,11 @@ public class MailManager : MonoBehaviour
     public void ClearReplyContent()
     {
         replyText.text = "";
-        print(replyButtonContainer.transform.childCount);
 
         foreach (Transform child in replyButtonContainer.transform)
         {
             Destroy(child.gameObject);
         }
     }
+
 }

@@ -1,5 +1,5 @@
 
-player "This is narration"
+player "<i>This is narration</i>"
 Derrick "This is Derrick", next
 
 choice ""
@@ -20,3 +20,5 @@ Load(Scene0-1a),
 "this is option 2"
 Load(Scene0-1b),
 }
+
+setMeetingUp(Bill Johnston, )

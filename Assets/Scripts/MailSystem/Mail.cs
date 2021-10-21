@@ -10,18 +10,28 @@ public class Mail : MonoBehaviour
     public TMP_Text previewSubject;
     public TMP_Text previewText;
 
-
     public string sender;
     public string subject;
     public TMP_Text mailTextPrefab;
 
-    public MailManager mailManager;
-
+    //Replies
     public List<string> replies = new List<string>();
 
+    public bool hasOpened = false;
     public bool hasReplied = false;
 
     public string chosenReply = "";
+
+    //Bool Checks
+    [SerializeField]
+    private bool startsMeeting;
+    [SerializeField]
+    private string meetingChar, meetingName;
+
+    [SerializeField]
+    private bool startsDialogue;
+    [SerializeField]
+    private string dialogueName; 
 
     private void Start()
     {
@@ -32,41 +42,65 @@ public class Mail : MonoBehaviour
 
     public void SelectMailFromInbox()
     {
-        if (mailManager.bodyContent.activeSelf)
+        if (MailManager.instance.bodyContent.activeSelf)
         {
         }
         else
         {
-            mailManager.bodyContent.SetActive(true);
+            MailManager.instance.bodyContent.SetActive(true);
         }
 
-        mailManager.bodyText.sender.text = sender;
-        mailManager.bodyText.subject.text = subject;
-        mailManager.bodyText.mailText.text = mailTextPrefab.text;
+        if (!hasOpened)
+        {
+            hasOpened = true;
+            MailManager.instance.UpdateNotifications();
+        }
 
-        mailManager.currentlyVisibleMail = this;
+        MailManager.instance.bodyText.sender.text = sender;
+        MailManager.instance.bodyText.subject.text = subject;
+        MailManager.instance.bodyText.mailText.text = mailTextPrefab.text;
+
+        MailManager.instance.currentlyVisibleMail = this;
+
 
         ClearReplyContent();
         LoadReplyContent();
 
-
+        CheckForBools();
 
     }
 
     public void ClearReplyContent()
     {
-        mailManager.ClearReplyContent();
+        MailManager.instance.ClearReplyContent();
     }
 
     public void LoadReplyContent()
     {
         if (hasReplied)
         {
-            mailManager.LoadInReplyText(this);
+            MailManager.instance.LoadInReplyText(this);
         }
         else
         {
-            mailManager.LoadInReplyButtons(this);
+            MailManager.instance.LoadInReplyButtons(this);
+        }
+    }
+
+    public void CheckForBools()
+    {
+        if (hasOpened && startsMeeting)
+        {
+            var character = MeetingManager.instance.IdentifyCharacter(meetingChar);
+            MeetingManager.instance.SetMeetingDetails(character, meetingName);
+        }
+        else if (hasOpened && startsDialogue)
+        {
+            NovelController.instance.LoadChapterFile(dialogueName);
+        }
+        else
+        {
+            return;
         }
     }
 }
