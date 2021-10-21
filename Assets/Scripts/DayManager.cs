@@ -22,7 +22,7 @@ public class DayManager : MonoBehaviour
     private void Start()
     {
         //TEST
-        StartWeek();
+        //StartWeek();
     }
 
     public void StartWeek()

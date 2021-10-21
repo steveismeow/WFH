@@ -12,158 +12,23 @@ public class NovelController : MonoBehaviour
 
     List<string> data = new List<string>();
 
-    //int progress = 0;
-
     void Awake()
     {
         instance = this;
     }
 
-    //int activeGameFileNumber = 0;
-    //GameFile activeGameFile = null;
+
     string activeChapterFile = "";
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //LoadGameFile(0);
-
-        //InitializeDialogue(0);
-
-        //LoadChapterFile("Scene0");
-
-    }
-
-    //public void InitializeDialogue(int sceneNumber)
-    //{
-    //    data = FileManager.LoadFile(FileManager.savePath + "Resources/Story/Scene" + sceneNumber);// + ".txt");
-
-    //    print(data[0]);
-
-
-    //    if (handlingChapterFile != null)
-    //    {
-    //        StopCoroutine(handlingChapterFile);
-    //    }
-
-    //    handlingChapterFile = StartCoroutine(HandlingChapterFile());
-
-
-
-    //}
-
-    //public void LoadGameFile(int gameFileNumber)
-    //{
-    //    activeGameFileNumber = gameFileNumber;
-
-    //    string filePath = FileManager.savePath + "userData/gameFiles/" + gameFileNumber.ToString() + ".txt";
-
-    //    if (!System.IO.File.Exists(filePath))
-    //    {
-    //        FileManager.SaveJSON(filePath, new GameFile());
-    //    }
-
-    //    activeGameFile = FileManager.LoadJSON<GameFile>(filePath);
-
-    //    data = FileManager.LoadFile(FileManager.savePath + "Resources/Story/" + activeGameFile.chapterName);
-    //    activeChapterFile = activeGameFile.chapterName;
-    //    cachedLastSpeaker = activeGameFile.cachedLastSpeaker;
-
-    //    DialogueManager.instance.Open(activeGameFile.currentTextSystemSpeakerDisplayText, activeGameFile.currentTextSystemDisplayText);
-    //    //Load the characters
-    //    //for (int i = 0; i < activeGameFile.charactersInScene.Count; i++)
-    //    //{
-    //    //    GameFile.CharacterData data = activeGameFile.charactersInScene[i];
-    //    //    Character character = CharacterManager.instance.CreateCharacter(data.characterName, data.enabled);
-    //    //    character.ChangeExpression(data.emotion);
-    //    //    if (data.facingLeft)
-    //    //    {
-    //    //        character.FaceLeft();
-    //    //    }
-    //    //    else
-    //    //    {
-    //    //        character.FaceRight();
-    //    //    }
-    //    //    character.SetPosition(data.position);
-    //    //}
-
-    //    //Load the layr images
-    //    if (activeGameFile.background != null)
-    //    {
-    //        LayerController.instance.background.SetTexture(activeGameFile.background as Texture2D);
-    //    }
-    //    if (activeGameFile.foreground != null)
-    //    {
-    //        LayerController.instance.foreground.SetTexture(activeGameFile.foreground as Texture2D);
-    //    }
-    //    if (activeGameFile.cinematic != null)
-    //    {
-    //        LayerController.instance.cinematic.SetTexture(activeGameFile.cinematic as Texture2D);
-    //    }
-
-    //    //Load music
-    //    if (activeGameFile.music != null)
-    //    {
-    //        AudioManager.instance.PlayMusic(activeGameFile.music);
-    //    }
-
-
-    //    if (handlingChapterFile != null)
-    //    {
-    //        StopCoroutine(handlingChapterFile);
-    //    }
-
-    //    handlingChapterFile = StartCoroutine(HandlingChapterFile());
-
-    //    chapterProgress = activeGameFile.chapterProgress;
-    //}
-
-    //public void SaveGameFile()
-    //{
-    //    string filePath = FileManager.savePath + "userData/gameFiles/" + activeGameFileNumber.ToString() + ".txt";
-
-    //    activeGameFile.chapterName = activeChapterFile;
-    //    activeGameFile.chapterProgress = chapterProgress;
-    //    activeGameFile.cachedLastSpeaker = cachedLastSpeaker;
-
-    //    activeGameFile.currentTextSystemSpeakerDisplayText = DialogueManager.instance.speakerNameText.text;
-    //    activeGameFile.currentTextSystemDisplayText = DialogueManager.instance.dialogueText.text;
-
-    //    //Save characters
-    //    //activeGameFile.charactersInScene.Clear();
-    //    //for (int i = 0; i < CharacterManager.instance.characters.Count; i++)
-    //    //{
-    //    //    Character character = CharacterManager.instance.characters[i];
-    //    //    GameFile.CharacterData data = new GameFile.CharacterData(character);
-    //    //    activeGameFile.charactersInScene.Add(data);
-    //    //}
-
-    //    //Save layer images
-    //    LayerController l = LayerController.instance;
-    //    activeGameFile.background = l.background.currentGraphic != null ? l.background.currentGraphic.renderer.texture : null;
-    //    activeGameFile.foreground = l.foreground.currentGraphic != null ? l.foreground.currentGraphic.renderer.texture : null;
-    //    activeGameFile.cinematic = l.cinematic.currentGraphic != null ? l.cinematic.currentGraphic.renderer.texture : null;
-
-
-    //    //Save music
-    //    activeGameFile.music = AudioManager.activeMusic != null ? AudioManager.activeMusic.clip : null;
-
-    //    FileManager.SaveJSON(filePath, activeGameFile);
-    //}
-
 
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             Next();
         }
-        //if (Input.GetKeyDown(KeyCode.S))
-        //{
-        //    SaveGameFile();
-        //}
+
     }
 
     public void LoadChapterFile(string fileName)
@@ -378,13 +243,6 @@ public class NovelController : MonoBehaviour
             case "wait":
                 Command_Wait(data[1]);
                 break;
-
-            //case "enter":
-            //    Command_Enter(data[1]);
-            //    break;
-            //case "exit":
-            //    Command_Exit(data[1]);
-            //    break;
             case "setBackground":
                 Command_SetLayerImage(data[1], LayerController.instance.background);
                 break;

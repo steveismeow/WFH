@@ -16,6 +16,10 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     private ScreenManager screenManager;
 
+    [SerializeField]
+    private GameObject continueObject;
+
+
     void Awake()
     {
         instance = this;
@@ -29,6 +33,8 @@ public class DialogueManager : MonoBehaviour
         {
             dialogueText.text = targetDialogue;
         }
+
+        continueObject.SetActive(false);
 
         speaking = StartCoroutine(Speaking(dialogue, additive, speaker));
 
@@ -99,8 +105,12 @@ public class DialogueManager : MonoBehaviour
         //text has finished
         isWaitingForUserInput = true;
         while (isWaitingForUserInput)
-
+        {
+            continueObject.SetActive(true);
             yield return new WaitForEndOfFrame();
+        }
+
+        continueObject.SetActive(false);
 
         StopSpeaking();
     }
