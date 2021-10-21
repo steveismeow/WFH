@@ -14,6 +14,13 @@ public class ScreenManager : MonoBehaviour
     private GameObject mailWindow;
     [SerializeField]
     private GameObject workWindow;
+    [SerializeField]
+    private GameObject webWindow;
+    [SerializeField]
+    private GameObject musicWindow;
+    [SerializeField]
+    private GameObject notesWindow;
+
 
     [SerializeField]
     private List<Button> buttons = new List<Button>();
@@ -28,6 +35,10 @@ public class ScreenManager : MonoBehaviour
     {
         mailWindow.SetActive(false);
         workWindow.SetActive(false);
+        webWindow.SetActive(false);
+        musicWindow.SetActive(false);
+        notesWindow.SetActive(false);
+
 
         if (meetingWindow.activeSelf)
         {
@@ -43,6 +54,9 @@ public class ScreenManager : MonoBehaviour
     {
         meetingWindow.SetActive(false);
         workWindow.SetActive(false);
+        webWindow.SetActive(false);
+        musicWindow.SetActive(false);
+        notesWindow.SetActive(false);
 
         if (mailWindow.activeSelf)
         {
@@ -58,6 +72,9 @@ public class ScreenManager : MonoBehaviour
     {
         meetingWindow.SetActive(false);
         mailWindow.SetActive(false);
+        webWindow.SetActive(false);
+        musicWindow.SetActive(false);
+        notesWindow.SetActive(false);
 
         if (workWindow.activeSelf)
         {
@@ -69,11 +86,74 @@ public class ScreenManager : MonoBehaviour
         }
     }
 
+    public void ActivateNotesWindow()
+    {
+        meetingWindow.SetActive(false);
+        workWindow.SetActive(false);
+        mailWindow.SetActive(false);
+        webWindow.SetActive(false);
+        musicWindow.SetActive(false);
+
+
+        if (notesWindow.activeSelf)
+        {
+            notesWindow.SetActive(false);
+        }
+        else
+        {
+            notesWindow.SetActive(true);
+        }
+    }
+
+    public void ActivateWebWindow()
+    {
+        meetingWindow.SetActive(false);
+        workWindow.SetActive(false);
+        mailWindow.SetActive(false);
+        notesWindow.SetActive(false);
+        musicWindow.SetActive(false);
+
+
+        if (webWindow.activeSelf)
+        {
+            webWindow.SetActive(false);
+        }
+        else
+        {
+            webWindow.SetActive(true);
+        }
+    }
+
+    public void ActivateMusicWindow()
+    {
+        meetingWindow.SetActive(false);
+        workWindow.SetActive(false);
+        mailWindow.SetActive(false);
+        webWindow.SetActive(false);
+        notesWindow.SetActive(false);
+
+
+        if (musicWindow.activeSelf)
+        {
+            musicWindow.SetActive(false);
+        }
+        else
+        {
+            musicWindow.SetActive(true);
+        }
+    }
+
+
+
+
     public void DeactivateAllWindows()
     {
         mailWindow.SetActive(false);
         workWindow.SetActive(false);
         meetingWindow.SetActive(false);
+        notesWindow.SetActive(false);
+        webWindow.SetActive(false);
+        musicWindow.SetActive(false);
     }
 
     public void DisableButtonInteraction()
