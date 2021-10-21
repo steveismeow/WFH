@@ -80,6 +80,8 @@ public class MeetingManager : MonoBehaviour
 
         notificationTag.SetActive(false);
 
+        AudioManager.instance.PlayMusic(null);
+
         //Need to debug this line
         background.sprite = currentCharacter.background;
 
