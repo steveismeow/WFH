@@ -6,14 +6,28 @@ using TMPro;
 public class WorkBodyText : MonoBehaviour
 {
 
-    // day represents day of the week
-    public TMP_Text day;
-    // character represents the character that the task is related to
-    public TMP_Text character;
+    // name represents the name of the character
+    public TMP_Text name;
+    // character age
+    public TMP_Text age;
 
-    // title is the title of the task -- "Evaluation", "Form Submission", etc.
-    public TMP_Text title;
+    // character weight
+    public TMP_Text weight;
 
-    // formText is the text of the task
+    // character city of residence
+    public TMP_Text city;
+
+    public TMP_Text companyPosition;
+
+    // Number of years that the character has spent with the company
+    public TMP_Text companyYears;
+
+    // Awards given to character
+    public TMP_Text companyAwards;
+
+    // List of issues the character has had with company
+    public TMP_Text disciplinaryRecord;
+
     public TMP_Text formText;
+
 }

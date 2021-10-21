@@ -30,6 +30,7 @@ public class Mail : MonoBehaviour
         previewText.SetText(mailTextPrefab.text);
     }
 
+
     public void SelectMailFromInbox()
     {
         if (mailManager.bodyContent.activeSelf)

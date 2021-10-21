@@ -13,9 +13,12 @@ public class WorkManager : MonoBehaviour
     public WorkBodyText workBodyText;
 
 
-    public List<GameObject> auxiliaryTaskList = new List<GameObject>();
+    public List<GameObject> auxiliaryProfileList = new List<GameObject>();
 
-    public Form currentlyVisibleTask;
+    public Form currentlyVisibleProfile;
+
+    // Declaration of Profile list
+    public List<GameObject> profileList = new List<GameObject>();
 
 
     // Declarations of task lists based on day
@@ -53,14 +56,14 @@ public class WorkManager : MonoBehaviour
     {
         print(taskName);
 
-        foreach (GameObject taskObj in auxiliaryTaskList)
+        foreach (GameObject profileObj in auxiliaryProfileList)
         {
-            if (taskObj.name == taskName)
+            if (profileObj.name == taskName)
             {
-                GameObject taskObject = Instantiate(taskObj, transform.position, Quaternion.identity);
-                taskObject.transform.SetParent(workTaskContent, false);
-                Form taskData = taskObject.GetComponent<Form>();
-                taskData.workManager = this;
+                GameObject profileObject = Instantiate(profileObj, transform.position, Quaternion.identity);
+                profileObject.transform.SetParent(workTaskContent, false);
+                Form profileData = profileObject.GetComponent<Form>();
+                profileData.workManager = this;
             }
             else
             {
@@ -74,18 +77,21 @@ public class WorkManager : MonoBehaviour
         switch (DayManager.instance.dayNumber)
         {
             case 0:
-                PopulateTasks(day1TaskList);
+                PopulateTasks(profileList);
                 break;
             case 1:
-                PopulateTasks(day2TaskList);
+                PopulateTasks(day1TaskList);
                 break;
             case 2:
-                PopulateTasks(day3TaskList);
+                PopulateTasks(day2TaskList);
                 break;
             case 3:
-                PopulateTasks(day4TaskList);
+                PopulateTasks(day3TaskList);
                 break;
             case 4:
+                PopulateTasks(day4TaskList);
+                break;
+            case 5:
                 PopulateTasks(day5TaskList);
                 break;
 
@@ -94,14 +100,14 @@ public class WorkManager : MonoBehaviour
         workBodyContent.SetActive(false);
     }
 
-    public void PopulateTasks(List<GameObject> taskList)
+    public void PopulateTasks(List<GameObject> profileListInput)
     {
-        foreach (GameObject taskObj in taskList)
+        foreach (GameObject profileObj in profileListInput)
         {
-            GameObject taskObject = Instantiate(taskObj, transform.position, Quaternion.identity);
-            taskObject.transform.SetParent(workTaskContent, false);
-            Form taskData = taskObject.GetComponent<Form>();
-            taskData.workManager = this;
+            GameObject profileObject = Instantiate(profileObj, transform.position, Quaternion.identity);
+            profileObject.transform.SetParent(workTaskContent, false);
+            Form profileData = profileObject.GetComponent<Form>();
+            profileData.workManager = this;
         }
 
     }
@@ -138,8 +144,8 @@ public class WorkManager : MonoBehaviour
     public void ChooseTaskChoice(string taskChoiceButtonText)
     {
         // Boolean for checking wether or not you've chosen a task uses ChosenTask format instead of TaskChoice format, not sure if it needs correction
-        currentlyVisibleTask.hasChosenTask = true;
-        currentlyVisibleTask.chosenTaskChoice = taskChoiceButtonText;
+        currentlyVisibleProfile.hasChosenTask = true;
+        currentlyVisibleProfile.chosenTaskChoice = taskChoiceButtonText;
 
         ClearTaskChoiceContent();
 
