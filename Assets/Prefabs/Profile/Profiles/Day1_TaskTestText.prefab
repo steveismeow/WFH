@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6017981981556583674, guid: 793b5385dd4324aa2b8e821a83edab70, type: 3}
       propertyPath: m_text
-      value: Your task is to call for doom on Bob. Do it.
+      value: Test
       objectReference: {fileID: 0}
     - target: {fileID: 6493277823566475099, guid: 793b5385dd4324aa2b8e821a83edab70, type: 3}
       propertyPath: m_Name

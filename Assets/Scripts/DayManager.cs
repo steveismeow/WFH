@@ -12,6 +12,11 @@ public class DayManager : MonoBehaviour
 
     public static DayManager instance;
 
+    //trying out
+    public MeetingManager meetingManager;
+    public MailManager mailManager;
+    public ProfileManager profileManager;
+
     public int dayNumber;
 
     private void Awake()
@@ -23,6 +28,7 @@ public class DayManager : MonoBehaviour
     {
         //TEST
         StartWeek();
+        print(dayNumber);
     }
 
     public void StartWeek()
@@ -31,6 +37,7 @@ public class DayManager : MonoBehaviour
         UpdateDayUI();
 
         StartDay();
+        print(dayNumber);
     }
 
     public void UpdateDayUI()
@@ -52,9 +59,15 @@ public class DayManager : MonoBehaviour
     {
         //Normal start day actions prior to any dialogue (i.e. fade in, etc.)
 
-        MeetingManager.instance.StartUp();
-        MailManager.instance.StartUp();
+
+        meetingManager.StartUp();
+        mailManager.StartUp();
+        profileManager.StartUp();
+        //MeetingManager.instance.StartUp();
+        //MailManager.instance.StartUp();
+        //ProfileManager.instance.StartUp();
         //WorkManager.instance.StartUp();
+
 
 
         switch (dayUI.dayNumber)

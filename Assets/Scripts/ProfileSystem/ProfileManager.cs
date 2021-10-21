@@ -22,11 +22,11 @@ public class ProfileManager : MonoBehaviour
         instance = this;
     }
 
-    private void Start()
+    public void StartUp()
     {
         //This is a Test. Generally, each day we'll need to load in the relevant task objects
         LoadInProfiles();
-
+        print("dlfkjvndlkjvb");
     }
 
 
@@ -42,6 +42,7 @@ public class ProfileManager : MonoBehaviour
                 GameObject profileObject = Instantiate(taskObj, transform.position, Quaternion.identity);
                 profileObject.transform.SetParent(profileContent, false);
                 Form profileData = profileObject.GetComponent<Form>();
+                profileData.profileManager = this;
             }
             else
             {
@@ -68,16 +69,18 @@ public class ProfileManager : MonoBehaviour
 
         }
 
+        print("does something happen here?");
         profileBodyContent.SetActive(false);
     }
 
-    public void PopulateProfiles(List<GameObject> profileList)
+    public void PopulateProfiles(List<GameObject> profileForms)
     {
         foreach (GameObject profileForm in profileForms)
         {
             GameObject profileObject = Instantiate(profileForm, transform.position, Quaternion.identity);
             profileObject.transform.SetParent(profileContent, false);
-            Form taskData = profileObject.GetComponent<Form>();
+            Form profileData = profileObject.GetComponent<Form>();
+            
         }
 
     }
