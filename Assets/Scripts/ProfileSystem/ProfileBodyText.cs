@@ -16,6 +16,8 @@ public class ProfileBodyText : MonoBehaviour
     public TMP_Text futureGoals;
     public TMP_Text additionalNotes;
 
+    //public Sprite profileImage;
+
 
 
 
