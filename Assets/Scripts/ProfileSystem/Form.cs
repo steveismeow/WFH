@@ -21,6 +21,8 @@ public class Form : MonoBehaviour
     public string futureGoals;
     public string additionalNotes;
 
+    public Sprite portrait;
+
     //public Sprite profileImage;
 
 
@@ -48,6 +50,7 @@ public class Form : MonoBehaviour
         ProfileManager.instance.profileBodyText.workPerformance.text = workPerformance;
         ProfileManager.instance.profileBodyText.futureGoals.text = futureGoals;
         ProfileManager.instance.profileBodyText.additionalNotes.text = additionalNotes;
+        ProfileManager.instance.portrait.sprite = portrait;
         //ProfileManager.instance.profileBodyText.profileImage.sprite = profileImage;
 
         ProfileManager.instance.currentlyVisibleProfile = this;

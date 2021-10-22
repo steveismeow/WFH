@@ -13,6 +13,8 @@ public class ProfileManager : MonoBehaviour
 
     public ProfileBodyText profileBodyText;
 
+    public Image portrait;
+
     public Form currentlyVisibleProfile;
 
     public List<GameObject> profileForms = new List<GameObject>();

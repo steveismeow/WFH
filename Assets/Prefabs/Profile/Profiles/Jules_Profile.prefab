@@ -178,6 +178,7 @@ MonoBehaviour:
   workPerformance: No issues
   futureGoals: Work / Life Balance
   additionalNotes: Inspirational Leader with a rabidly loyal team
+  portrait: {fileID: 21300000, guid: 627631965f6d73b45ac5465dd6ca32ee, type: 3}
 --- !u!1 &2615285333295125209
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,8 +481,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 2.1557617}
-  m_SizeDelta: {x: 59.0308, y: 56.844}
+  m_AnchoredPosition: {x: 5, y: 5}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &2857984214992681485
 CanvasRenderer:
@@ -511,7 +512,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e9c3647d166d1f641bcc0d95b7a68575, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 627631965f6d73b45ac5465dd6ca32ee, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
