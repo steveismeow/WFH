@@ -45,11 +45,8 @@ public class MailManager : MonoBehaviour
         instance = this;
     }
 
-    // Reply Container will house buttons with reply options before you have replied.
-    // Mail Manager will have a reference to this object.
-    // MailObject OnClick will load in the replies to the Reply Container in order to generate buttons with each reply string.
-
-    public void StartUp()
+    // Name as Start() or StartUp()?
+    public void Start()
     {
         LoadInMorningMail();
     }
