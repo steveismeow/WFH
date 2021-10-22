@@ -6,13 +6,21 @@ using TMPro;
 
 public class Form : MonoBehaviour
 {
+
+    // Sets previews -- these are in the preview container -- these are good
     public TMP_Text previewName;
     public TMP_Text previewTitle;
 
 
+    // This section needs to have each of the parameters
     public string characterName;
     public string title;
     public string age;
+    public string medicalHistory;
+    public string workPerformance;
+    public string futureGoals;
+    public string additionalNotes;
+
 
     private void Start()
     {
@@ -34,6 +42,10 @@ public class Form : MonoBehaviour
         ProfileManager.instance.profileBodyText.characterName.text = characterName;
         ProfileManager.instance.profileBodyText.jobTitle.text = title;
         ProfileManager.instance.profileBodyText.age.text = age;
+        ProfileManager.instance.profileBodyText.medicalHistory.text = medicalHistory;
+        ProfileManager.instance.profileBodyText.workPerformance.text = workPerformance;
+        ProfileManager.instance.profileBodyText.futureGoals.text = futureGoals;
+        ProfileManager.instance.profileBodyText.additionalNotes.text = additionalNotes;
 
         ProfileManager.instance.currentlyVisibleProfile = this;
 

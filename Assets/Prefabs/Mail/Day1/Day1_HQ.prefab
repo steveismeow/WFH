@@ -571,7 +571,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29fa078235c8cae4b8aee52bac7300d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mailManager: {fileID: 0}
   previewSender: {fileID: 8469965168752668867}
   previewSubject: {fileID: 8469965167665806761}
   previewText: {fileID: 8469965168473571497}
@@ -579,10 +578,11 @@ MonoBehaviour:
   subject: Today's Assignment
   mailTextPrefab: {fileID: 4375415152447807549, guid: e96bbdbd6f0f78442bb153ac948c7beb, type: 3}
   replies: []
+  hasOpened: 0
   hasReplied: 0
   chosenReply: 
   startsMeeting: 1
-  startsDialogue: 0
   meetingChar: Bill
   meetingName: Meeting_Bill_1
-  sceneName: 
+  startsDialogue: 0
+  dialogueName: 

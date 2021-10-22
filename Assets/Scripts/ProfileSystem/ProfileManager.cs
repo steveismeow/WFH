@@ -71,7 +71,7 @@ public class ProfileManager : MonoBehaviour
         profileBodyContent.SetActive(false);
     }
 
-    public void PopulateProfiles(List<GameObject> profileList)
+    public void PopulateProfiles(List<GameObject> profileForms)
     {
         foreach (GameObject profileForm in profileForms)
         {
