@@ -4,7 +4,7 @@ wait(2)
 
 player "Monday morning. {a} I better get started with my day."
 
-clearFG(0.1), next
+clearFG(0.2), next
 
 wait(2)
 

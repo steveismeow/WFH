@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 /// <summary>
 /// Manages the txt file and interprets actions and inputs
@@ -250,10 +251,14 @@ public class NovelController : MonoBehaviour
                 Command_SetLayerImage(data[1], LayerController.instance.foreground);
                 break;
             case "setCinematic":
-                Command_SetLayerImage(data[1], LayerController.instance.cinematic);
+                //Command_SetLayerImage(data[1], LayerController.instance.cinematic);
+                Command_SetVideo(data[1], LayerController.instance.cinematic);
                 break;
             case "clearFG":
                 Command_ClearFGLayer(data[1], LayerController.instance.foreground);
+                break;
+            case "replacementGlitch":
+                Command_ReplacementGlitch();
                 break;
             case "plusPerformance":
                 Command_PlusPerformance(data[1]);
@@ -338,6 +343,11 @@ public class NovelController : MonoBehaviour
         MeetingManager.instance.EndMeeting();
     }
 
+    void Command_ReplacementGlitch()
+    {
+        MeetingManager.instance.ReplacementGlitch();
+    }
+
     void Command_PlayAnimation(string animStateName)
     {
         MeetingManager.instance.PlayAnimation(animStateName);
@@ -351,7 +361,18 @@ public class NovelController : MonoBehaviour
 
     void Command_SetTestBool(string data)
     {
-        PlayerData.instance.testBool = bool.Parse(data);    }
+        PlayerData.instance.testBool = bool.Parse(data);    
+    }
+
+    void Command_SetVideo(string data, LayerController.Layer layer)
+    {
+        string videoName = data.Contains(",") ? data.Split(',')[0] : data;
+        VideoClip video = videoName == "null" ? null : Resources.Load("Video/" + videoName) as VideoClip;
+
+        //May want to come back here and edit in the ability to modify transition speed
+        layer.SetVideo(video, 1, false);
+
+    }
 
     void Command_SetLayerImage(string data, LayerController.Layer layer)
     {
