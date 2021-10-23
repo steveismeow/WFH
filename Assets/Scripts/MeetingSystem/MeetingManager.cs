@@ -15,6 +15,8 @@ public class MeetingManager : MonoBehaviour
 
     [SerializeField]
     private Sprite defaultBackground;
+    [SerializeField]
+    private Sprite whiteNoise;
 
     [SerializeField]
     private GameObject notificationTag;
@@ -126,6 +128,40 @@ public class MeetingManager : MonoBehaviour
     public void PlayAnimation(string animStateName)
     {
         currentAnimator.Play(animStateName);
+    }
+
+    Coroutine glitching;
+    public void ReplacementGlitch()
+    {
+        glitching = StartCoroutine(Glitching());
+    }
+
+    IEnumerator Glitching()
+    {
+        currentCharacter.gameObject.SetActive(false);
+
+        background.sprite = whiteNoise;
+
+        yield return new WaitForSeconds(0.2f);
+
+        background.sprite = currentCharacter.bloodyBackground;
+
+        yield return new WaitForSeconds(0.4f);
+
+        currentCharacter.gameObject.SetActive(false);
+
+        background.sprite = whiteNoise;
+
+        yield return new WaitForSeconds(0.2f);
+
+        currentCharacter.gameObject.SetActive(true);
+
+        background.sprite = currentCharacter.background;
+
+
+
+
+
     }
 
 }
