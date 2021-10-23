@@ -46,7 +46,7 @@ public class MailManager : MonoBehaviour
     }
 
     // Name as Start() or StartUp()?
-    public void Start()
+    public void StartUp()
     {
         LoadInMorningMail();
     }

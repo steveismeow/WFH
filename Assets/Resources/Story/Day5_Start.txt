@@ -1,0 +1,5 @@
+player "..."
+
+clearFG(0.2), next
+
+exitDialogue()

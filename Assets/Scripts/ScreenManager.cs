@@ -8,6 +8,12 @@ using UnityEngine.UI;
 /// </summary>
 public class ScreenManager : MonoBehaviour
 {
+    public static ScreenManager instance;
+
+    [SerializeField]
+    private GameObject lockScreen;
+    [SerializeField]
+    private CanvasGroup lockScreenCanvasGroup;
     [SerializeField]
     private GameObject meetingWindow;
     [SerializeField]
@@ -21,15 +27,103 @@ public class ScreenManager : MonoBehaviour
     [SerializeField]
     private GameObject notesWindow;
 
+    [SerializeField]
+    private GameObject dock;
+
+    public AudioClip unlock;
+
+
 
     [SerializeField]
     private List<Button> buttons = new List<Button>();
 
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
         DeactivateAllWindows();
+        DeactivateDock();
     }
+
+    private void Update()
+    {
+        if (lockScreen.activeSelf && !DialogueManager.instance.dialogueBox.activeSelf)
+        {
+            if (Input.GetKeyDown(KeyCode.Space) && !isdeactivatinglockscreen) 
+            {
+                DeactivateLockScreen();
+            }
+        }
+    }
+
+    public void ActivateLockScreen()
+    {
+        lockScreen.SetActive(true);
+        lockScreenCanvasGroup.alpha = 1;
+    }
+
+    bool isdeactivatinglockscreen { get { return deactivatingLockScreen != null; } }
+    Coroutine deactivatingLockScreen;
+    public void DeactivateLockScreen()
+    {
+        deactivatingLockScreen = StartCoroutine(DeactivatingLockScreen());
+    }
+
+    IEnumerator DeactivatingLockScreen()
+    {
+        //play sfx
+        AudioManager.instance.PlaySFX(unlock);
+
+        float fadeInDuration = 1.5f;
+        float elapsedTime = 0f;
+
+        ActivateDock();
+
+        bool isTransitioning = true;
+        while (isTransitioning)
+        {
+
+            while (elapsedTime < fadeInDuration)
+            {
+                elapsedTime += Time.deltaTime;
+                float newAlpha = Mathf.Lerp(1, 0, elapsedTime / fadeInDuration);
+                lockScreenCanvasGroup.alpha = newAlpha;
+
+                if (newAlpha <= 0)
+                {
+                    isTransitioning = false;
+                }
+
+                yield return null;
+            }
+        }
+        
+
+
+        lockScreen.SetActive(false);
+
+        if (DayManager.instance.dayUI.dayNumber == 0)
+        {
+            NovelController.instance.LoadChapterFile("Day1_EmailPrompt");
+        }
+
+        deactivatingLockScreen = null;
+    }
+
+    public void DeactivateDock()
+    {
+        dock.SetActive(false);
+    }
+
+    public void ActivateDock()
+    {
+        dock.SetActive(true);
+    }
+
+
 
     public void ActivateMeetingWindow()
     {
@@ -148,6 +242,8 @@ public class ScreenManager : MonoBehaviour
 
     public void DeactivateAllWindows()
     {
+        print("test");
+
         mailWindow.SetActive(false);
         workWindow.SetActive(false);
         meetingWindow.SetActive(false);

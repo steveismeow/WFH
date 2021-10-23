@@ -1,7 +1,5 @@
 Bill "Ah, hello there. {a} It's a pleasure to finally meet you."
 
-replacementGlitch()
-
 "I have been anticipating this review for quite a while."
 
 "Your company has <i>quite</i> the reputation after all.", next
@@ -16,6 +14,8 @@ You "Let's proceed with the brief"
 Bill "Of course! Let's get straight to business." plusPerformance(2) next,
 }
 
-Bill "Now then.", playAnim(Idle)
+Bill "Now then.", playAnim(Neutral)
 
-endMeeting(), exitDialogue()
+endMeeting(),
+
+endDay(), exitDialogue()

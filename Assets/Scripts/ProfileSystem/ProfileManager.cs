@@ -19,12 +19,14 @@ public class ProfileManager : MonoBehaviour
 
     public List<GameObject> profileForms = new List<GameObject>();
 
+    public bool hasBeenInitialized = false;
+
     private void Awake()
     {
         instance = this;
     }
 
-    private void Start()
+    public void StartUp()
     {
         //This is a Test. Generally, each day we'll need to load in the relevant task objects
         LoadInProfiles();
@@ -35,6 +37,8 @@ public class ProfileManager : MonoBehaviour
     // method to load in form objects -- right now just testing with LoadInTask() method
     public void LoadInProfileMain(string taskName)
     {
+        hasBeenInitialized = true;
+
         print(taskName);
 
         foreach (GameObject taskObj in profileForms)

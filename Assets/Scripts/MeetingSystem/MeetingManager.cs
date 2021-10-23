@@ -8,6 +8,7 @@ public class MeetingManager : MonoBehaviour
 
     public Transform videoFeed;
     public SpriteRenderer background;
+    public SpriteRenderer bloodyBackground;
     public GameObject startMeetingButton;
     public Character currentCharacter;
 
@@ -18,15 +19,18 @@ public class MeetingManager : MonoBehaviour
     [SerializeField]
     private Sprite whiteNoise;
 
+    public AudioClip startCall, endCall;
+
     [SerializeField]
     private GameObject notificationTag;
 
     private string queuedMeeting;
 
-
     public List<GameObject> characters = new List<GameObject>();
 
     public GameObject characterPool;
+
+    public bool hasBeenInitialized = false;
 
 
     private void Awake()
@@ -49,6 +53,8 @@ public class MeetingManager : MonoBehaviour
 
     public void StartUp()
     {
+        hasBeenInitialized = true;
+
         foreach (Transform child in characterPool.transform)
         {
             characters.Add(child.gameObject);
@@ -76,6 +82,8 @@ public class MeetingManager : MonoBehaviour
         notificationTag.SetActive(true);
     }
 
+    bool isstartingmeeting { get { return startingMeeting != null; } }
+    Coroutine startingMeeting;
     public void StartMeeting()
     {
         startMeetingButton.SetActive(false);
@@ -83,6 +91,16 @@ public class MeetingManager : MonoBehaviour
         notificationTag.SetActive(false);
 
         AudioManager.instance.PlayMusic(null);
+
+        startingMeeting = StartCoroutine(StartingMeeting());
+
+    }
+
+    IEnumerator StartingMeeting()
+    {
+        AudioManager.instance.PlaySFX(startCall);
+
+        yield return new WaitForSeconds(2f);
 
         //Need to debug this line
         background.sprite = currentCharacter.background;
@@ -95,7 +113,11 @@ public class MeetingManager : MonoBehaviour
 
 
         NovelController.instance.LoadChapterFile(queuedMeeting);
+
     }
+
+    bool isendingmeeting { get { return endingMeeting != null; } }
+    Coroutine endingMeeting;
 
     public void EndMeeting()
     {
@@ -105,6 +127,15 @@ public class MeetingManager : MonoBehaviour
         currentCharacter.gameObject.SetActive(false);
 
         queuedMeeting = "";
+
+        endingMeeting = StartCoroutine(EndingMeeting());
+    }
+
+    IEnumerator EndingMeeting()
+    {
+        AudioManager.instance.PlaySFX(endCall);
+
+        yield return new WaitForSeconds(2f);
     }
 
     public GameObject IdentifyCharacter(string name)
@@ -118,7 +149,6 @@ public class MeetingManager : MonoBehaviour
             {
                 return character;
             }
-     
  
         }
 
@@ -141,27 +171,30 @@ public class MeetingManager : MonoBehaviour
         currentCharacter.gameObject.SetActive(false);
 
         background.sprite = whiteNoise;
+        bloodyBackground.sprite = currentCharacter.bloodyBackground;
 
-        yield return new WaitForSeconds(0.2f);
+        float fadeOutDuration = 1.2f;
+        float elapsedTime = 0;
+        float startValue = background.color.a;
 
-        background.sprite = currentCharacter.bloodyBackground;
+        while (elapsedTime < fadeOutDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float newAlpha = Mathf.Lerp(startValue, 0, elapsedTime/fadeOutDuration);
+
+            background.color = new Color(background.color.r, background.color.r, background.color.b, newAlpha);
+            yield return null;
+        }
+
+        bloodyBackground.sprite = null;
+
+        background.color = new Color(background.color.r, background.color.r, background.color.b, 255);
+        background.sprite = defaultBackground;
 
         yield return new WaitForSeconds(0.4f);
 
-        currentCharacter.gameObject.SetActive(false);
-
-        background.sprite = whiteNoise;
-
-        yield return new WaitForSeconds(0.2f);
-
-        currentCharacter.gameObject.SetActive(true);
-
         background.sprite = currentCharacter.background;
-
-
-
-
-
+        currentCharacter.gameObject.SetActive(true);
     }
 
 }

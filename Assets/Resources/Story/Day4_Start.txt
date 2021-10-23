@@ -1,0 +1,5 @@
+player "...at least it's almost Friday."
+
+clearFG(0.2), next
+
+exitDialogue()

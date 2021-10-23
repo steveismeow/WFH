@@ -1,0 +1,5 @@
+player "Another full day of meetings ahead. Better get started."
+
+clearFG(0.2), next
+
+exitDialogue()

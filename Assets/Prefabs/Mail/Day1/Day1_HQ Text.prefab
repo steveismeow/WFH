@@ -9,22 +9,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6517711149023990141, guid: 4eb10bfba52779444a472046af4f0bc2, type: 3}
       propertyPath: m_text
-      value: "Dear [Player],\r\n\r\nThank you for your recent application. We are
-        pleased to invite you to join our team, as a short-term, remote HR Specialist.
-        [Products Incorporated] provides customer-focused solutions via our best-in-class
-        Product at competitive market rates to a diverse and global clientele.\r\nHere
+      value: "Dear Employee,\r\n\r\nAs previously discussed, your assignment this
+        week is to evaluate the perfomance efficacy for a national firm. [Products
+        Incorporated] provides customer-focused solutions via best-in-class Product
+        at competitive market rates to a diverse and global clientele.\r \r\n\r\nAs
+        our HR Specialist, you will assist them in preparing an annual Company Culture
+        Audit, which will assess how the selected employees are invested into their
+        company culture. Through a series of interviews with 3 employees, who represent
+        a cross-functional team working at every level of the company, you will be
+        responsible for providing a longitudinal knowledge transfer that will help
+        to design employee experiences that interpret and reinforce desired culture
+        responsibilities. \r\n\nSee below for additional details.\n\nForwarded:\n\nHere
         at [Products Incorporated], we are proud to be a diverse collective of imaginative
         thinkers, innovating cross-functional optimization initiatives to deliver
-        user value through product engagement. \r\n\r\nAs our HR Specialist, we will
-        need you to assist us in preparing our annual Company Culture Audit, which
-        will assess how the selected employees are invested into our company culture.
-        Through a series of interviews with five employees, who represent a cross-functional
-        team working at every level of the company, you will be responsible for providing
-        a longitudinal knowledge transfer that will help us design employee experiences
-        to interpret and reinforce our desired culture responsibilities. \r\n\r\nWe
-        at [Products Incorporated] understand the ineffectiveness of a top-down leadership
-        approach, and this Report will be an integral aspect of the re-development
-        of our company into an industry leader in peer-to-peer communication framework.
+        user value through product engagement.\n\r\nWe at [Products Incorporated]
+        understand the ineffectiveness of a top-down leadership approach, and know
+        that this Report will be an integral aspect of the re-development of our
+        company into an industry leader in peer-to-peer communication framework.
         \r\n\r\nThank you for joining the [Products Incorporated] team. Be prepared
         to meet with Bill Johnston at 9 A.M. on Monday. He will be awaiting your
         call. \r\n\r\nThank you,\r\n\r\nHuman Resources\r\n"

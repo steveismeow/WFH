@@ -293,9 +293,21 @@ public class NovelController : MonoBehaviour
             case "setTimeTo":
                 Command_SetTimeTo(data[1]);
                 break;
+            case "endDay":
+                Command_EndDay();
+                break;
+
 
 
         }
+    }
+
+    void Command_EndDay()
+    {
+        //Tell DayManager to play EndDay()
+        DayManager.instance.EndDay();
+
+        Command_SetLayerImage("black", LayerController.instance.foreground);
     }
 
 
