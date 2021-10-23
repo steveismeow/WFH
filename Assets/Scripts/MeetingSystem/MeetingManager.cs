@@ -8,6 +8,7 @@ public class MeetingManager : MonoBehaviour
 
     public Transform videoFeed;
     public SpriteRenderer background;
+    public SpriteRenderer bloodyBackground;
     public GameObject startMeetingButton;
     public Character currentCharacter;
 
@@ -141,27 +142,45 @@ public class MeetingManager : MonoBehaviour
         currentCharacter.gameObject.SetActive(false);
 
         background.sprite = whiteNoise;
+        bloodyBackground.sprite = currentCharacter.bloodyBackground;
 
-        yield return new WaitForSeconds(0.2f);
+        float fadeOutDuration = 1.2f;
+        float fadeInDuration = 0.8f;
+        float elapsedTime = 0;
+        float relapsedTime = 0;
+        float startValue = background.color.a;
 
-        background.sprite = currentCharacter.bloodyBackground;
+        while (elapsedTime < fadeOutDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float newAlpha = Mathf.Lerp(startValue, 0, elapsedTime/fadeOutDuration);
+
+            background.color = new Color(background.color.r, background.color.r, background.color.b, newAlpha);
+            yield return null;
+        }
+
+        //while (relapsedTime < fadeInDuration)
+        //{
+        //    relapsedTime += Time.deltaTime;
+        //    float newAlpha = Mathf.Lerp(0, startValue, relapsedTime/fadeInDuration);
+
+        //    background.color = new Color(background.color.r, background.color.r, background.color.b, newAlpha);
+        //    yield return null;
+        //}
+
+
+        //yield return new WaitForSeconds(4f);
+
+
+        bloodyBackground.sprite = null;
+
+        background.color = new Color(background.color.r, background.color.r, background.color.b, 255);
+        background.sprite = defaultBackground;
 
         yield return new WaitForSeconds(0.4f);
 
-        currentCharacter.gameObject.SetActive(false);
-
-        background.sprite = whiteNoise;
-
-        yield return new WaitForSeconds(0.2f);
-
-        currentCharacter.gameObject.SetActive(true);
-
         background.sprite = currentCharacter.background;
-
-
-
-
-
+        currentCharacter.gameObject.SetActive(true);
     }
 
 }

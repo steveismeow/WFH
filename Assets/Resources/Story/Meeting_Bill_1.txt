@@ -1,6 +1,8 @@
 Bill "Ah, hello there. {a} It's a pleasure to finally meet you."
 
-replacementGlitch()
+replacementGlitch(), next
+
+wait(2)
 
 "I have been anticipating this review for quite a while."
 
