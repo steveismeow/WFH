@@ -699,6 +699,7 @@ MonoBehaviour:
   currentlyVisibleProfile: {fileID: 0}
   profileForms:
   - {fileID: 8472164611957452099, guid: 15fd3189d8714433099234db7e6bc931, type: 3}
+  - {fileID: 3796662361464797623, guid: cbffbf1d877a743a59f0498fe8562353, type: 3}
   - {fileID: 1701238221934036868, guid: f68fb1405a28a4724b0858e1948065f4, type: 3}
   - {fileID: 1027150151587011218, guid: 3893ef1f88d15466ea8171a2726aae85, type: 3}
   - {fileID: 1905115819712154587, guid: fff7764919f924e6aa04527ccf317190, type: 3}
@@ -1294,7 +1295,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 445935286}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.96319956
+  m_Size: 0.9631993
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7058,7 +7059,7 @@ MonoBehaviour:
     dialogueText: {fileID: 937635475}
     speakerNameText: {fileID: 1639345720}
   screenManager: {fileID: 77914201}
-  continueObject: {fileID: 2012886374}
+  continueObject: {fileID: 0}
   isWaitingForUserInput: 0
   targetDialogue: 
   DialoguePanelRequirements:
@@ -8366,7 +8367,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1996238106}
   m_HandleRect: {fileID: 1996238105}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -14183,6 +14184,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9100000, guid: b3c7c18169b72774cbc167427a420343, type: 2}
     - target: {fileID: 5581710790420964889, guid: 8e0a0cc28593bf543b8e1de8b1d08897, type: 3}
+      propertyPath: m_Size.x
+      value: 415.19446
+      objectReference: {fileID: 0}
+    - target: {fileID: 5581710790420964889, guid: 8e0a0cc28593bf543b8e1de8b1d08897, type: 3}
+      propertyPath: m_Size.y
+      value: 378.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5581710790420964889, guid: 8e0a0cc28593bf543b8e1de8b1d08897, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 7f4ecb60323d41549aee6b1d65000eb0, type: 3}
@@ -14421,6 +14430,14 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: ba950c89edd495a42ba8d672f38d6ff6, type: 2}
+    - target: {fileID: 6116997527326875936, guid: b0ad2ae92241887429b6547233593a05, type: 3}
+      propertyPath: m_Size.x
+      value: 415.19446
+      objectReference: {fileID: 0}
+    - target: {fileID: 6116997527326875936, guid: b0ad2ae92241887429b6547233593a05, type: 3}
+      propertyPath: m_Size.y
+      value: 378.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6116997527326875936, guid: b0ad2ae92241887429b6547233593a05, type: 3}
       propertyPath: m_Sprite
       value: 
