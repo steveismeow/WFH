@@ -1,0 +1,17 @@
+next
+
+plusPerformance(2), next
+
+Lily "Definitely. I wanted to join the best and help propel Products Incorporated forward.", next
+
+You "Did you feel prepared for your role when you started your first position here?"
+
+Lily "I've always been like this."
+
+"If I would point to anything specifically, I would say that being a gymnast as a child make me very focused."
+
+You "And do you think that a competitive nature is an important aspect of creating a productive team?"
+
+Lily "Yes! I think recognition is so important to productivity. Receiving awards, commendations, or just praise really gets employees motivated.", playAnim(Happy)
+
+Load(Meeting_Lily_1end)
