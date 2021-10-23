@@ -290,6 +290,9 @@ public class NovelController : MonoBehaviour
             case "exitDialogue":
                 ExitDialogue();
                 break;
+            case "setTimeTo":
+                Command_SetTimeTo(data[1]);
+                break;
 
 
         }
@@ -426,4 +429,13 @@ public class NovelController : MonoBehaviour
         AudioManager.instance.PlaySFX(clip);
 
     }
+
+    void Command_SetTimeTo(string time_data)
+    {
+        // include time switch statements here -- check to see if strings match specific time values
+        // make a call to the Clock class's SetTimeTo function
+        Clock.instance.SetTimeTo(time_data);
+    }
+
+
 }
