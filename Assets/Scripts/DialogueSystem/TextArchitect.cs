@@ -49,8 +49,8 @@ public class TextArchitect
 		tmpro.text += preText;
 
 		tmpro.ForceMeshUpdate(false);
-		var inf = tmpro.textInfo;
-        int vis = inf.characterCount;
+		TMP_TextInfo inf = tmpro.textInfo;
+		int vis = inf.characterCount;
 
 		tmpro.text += targetText;
 
