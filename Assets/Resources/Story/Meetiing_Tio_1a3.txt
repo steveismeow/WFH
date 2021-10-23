@@ -1,0 +1,14 @@
+next
+playAnim(Nervous), next
+
+Horatio "I was injured on the job."
+
+"After my recovery, I was able to get off Workers Comp and start working in Customer Service."
+
+"But it's just not the same."
+
+"And now that I don't walk around the office as much my chronic pain has been getting worse and worse", playAnim(Neutral)
+
+You "I see."
+
+Load(Meeting_Tio_1end)

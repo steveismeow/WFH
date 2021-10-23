@@ -1,0 +1,40 @@
+next
+Horatio "Like I said, kidding. Ask anyone, I am quite the jokester."
+
+"Back when we were in the office..[mumble]", next
+
+choice ""
+{
+You "Apologies Horatio, but if we could return to the topic at hand?"
+plusPerformance(2) Load(Meeting_Tio_1a),
+You "I'm sure you were quite popular at the office, tell me more"
+Horatio "Oh it was great"
+}
+
+"You know, I got my nickname, "Tio" here at work."
+
+"I was everyone's uncle" playAnim(Happy)
+
+choice ""
+{
+You "What do you think about the fact that productivity has increased by ~31% since WFH was implemented?"
+Horatio "Well I don't think numbers can tell you everything. {a} A lot of work is about relationships.",
+You "Doesn't your current position require you to talk to colleagues and customers all day?"
+Horatio "Ah, it's not the same."
+}
+
+next
+
+choice ""
+{
+You "Do you not enjoy working from home?"
+Load(Meeting_Tio_1b2),
+You "Do you not think that a digital workspace is more conducive to interpersonal relationship building?"
+Horatio "I mean sure it's nice to operate from the comfort of home, but..." playAnim(Nervous) plusPerformance(2),
+}
+
+You "Why don't we circle back to this later on."
+
+"How did you start your career with Products Incorporated?"
+
+Load(Meeting_Tio_1a)

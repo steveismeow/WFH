@@ -24,7 +24,7 @@ public class MeetingManager : MonoBehaviour
     [SerializeField]
     private GameObject notificationTag;
 
-    private string queuedMeeting;
+    public string queuedMeeting;
 
     public List<GameObject> characters = new List<GameObject>();
 
@@ -70,6 +70,10 @@ public class MeetingManager : MonoBehaviour
     {
         //get the Character script
         //Character characterData = character.GetComponent<Character>();
+        if (currentCharacter != null)
+        {
+            currentCharacter.gameObject.SetActive(false);
+        }
 
         //set the character
         currentCharacter = character.GetComponent<Character>();

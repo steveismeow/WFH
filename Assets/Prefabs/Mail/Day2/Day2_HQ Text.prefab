@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 6517711149023990141, guid: 4eb10bfba52779444a472046af4f0bc2, type: 3}
       propertyPath: m_text
       value: "Dear Employee,\n\nToday marks the first day of interviews. Your schedule
-        is as follows:\n\n9:00AM - Horatio Per\xE9z\n12:00PM -  Juliette Marie Thatcher\n3:00PM
+        is as follows:\n\n9:00AM - Horatio P\xE9rez\n12:00PM -  Juliette Marie Thatcher\n3:00PM
         - Lily Chao\n\nPlease make sure to review their Employee Profiles prior to
         your appointments. \n\n"
       objectReference: {fileID: 0}

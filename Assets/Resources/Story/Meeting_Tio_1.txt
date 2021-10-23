@@ -1,3 +1,14 @@
-setMeetingUp(Jules, Meeting_Jules_1), setTimeTo(12:00PM),
 
-exitDialogue()
+You "Mr. Peréz, thank you for meeting with me today."
+
+Horatio "Not exactly like I had much choice, right?", playAnim(Happy)
+
+"Kidding. Kidding" playAnim(Neutral), next
+
+choice ""
+{
+You "Alright then. Let's move on."
+Load(Meeting_Tio_1a),
+You "All participation should be voluntary."
+Load(Meeting_Tio_1b),
+}

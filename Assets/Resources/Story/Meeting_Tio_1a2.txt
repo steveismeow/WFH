@@ -1,0 +1,22 @@
+next
+Horatio "Oh yes, I loved working in the warehouse", playAnim(Happy)+
+
+Horatio "The energy, the camaraderie, the physical labor."
+
+"If it hadn't been for the accident, I would have happily stayed there for my entire career.", playAnim(Neutral)
+
+"Although I am thankful for my current position, I am not as productive as I used to be.", next
+
+choice ""
+{
+You "Accident?"
+Load(Meetiing_Tio_1a3),
+You "Does your decrease in productivity concern you?"
+Horatio "Of course it does." playAnim(Angry) plusPerformance(5),
+}
+
+player "<i>He sighs</i>", playAnim(Neutral)
+
+Horatio "Sadly, I just don't think I'm well suited to this digital work environment"
+
+Load(Meeting_Tio_1end)

@@ -1,0 +1,12 @@
+replacementGlitch()
+
+Horatio "Hello. It is good to see you again."
+
+
+setTimeTo(3:00PM), next
+
+endMeeting(), next
+
+setMeetingUp(Lily, Meeting_Lily_2)
+
+exitDialogue()

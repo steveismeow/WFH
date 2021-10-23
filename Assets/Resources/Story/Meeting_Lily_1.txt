@@ -1,5 +1,17 @@
+next
 
+You "Hello. {a} Thank you for participating in our Company Culture Audit."
 
-setTimeTo(3:00PM)
+Lily "I understand the importance of this culture initiative."
 
-exitDialogue()
+You "Looking at your personnel record, you have achieved a lot in your five years with the company."
+
+Lily "I joined the team at the correct time. And I'm very motivated to succeed.", next
+
+choice ""
+{
+You "Did that drive influence your decision to join Products Incorporated?"
+Load(Meeting_Lily_1a),
+You "What does success mean to you?"
+Load(Meeting_Lily_1b),
+}

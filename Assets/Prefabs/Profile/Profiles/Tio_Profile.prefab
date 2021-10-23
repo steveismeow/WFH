@@ -171,7 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previewName: {fileID: 7209084723622593567}
   previewTitle: {fileID: 608775614414970087}
-  characterName: "Horatio Per\xE9z"
+  characterName: "Horatio P\xE9rez"
   title: Customer Support Specialist
   age: 58
   medicalHistory: Back Injury, Liver Problems

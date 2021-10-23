@@ -25,6 +25,8 @@ public class DayManager : MonoBehaviour
 
     private void Start()
     {
+        //dayScreenText.enabled = false;
+
         //TEST
         StartWeek();
     }
@@ -61,6 +63,8 @@ public class DayManager : MonoBehaviour
     public void StartDay()
     {
         print("Starting Day!");
+
+        dayScreenText.enabled = false;
 
         //Normal start day actions prior to any dialogue (i.e. fade in, etc.)
         //startingDay = StartCoroutine(startingDay());
@@ -125,6 +129,8 @@ public class DayManager : MonoBehaviour
     {
         ScreenManager.instance.DeactivateAllWindows();
         ScreenManager.instance.DeactivateDock();
+
+        dayScreenText.enabled = true;
 
         dayScreenAnim.Play("Play");
 
