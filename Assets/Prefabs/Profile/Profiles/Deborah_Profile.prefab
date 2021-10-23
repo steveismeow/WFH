@@ -312,7 +312,7 @@ MonoBehaviour:
   workPerformance: Good, Dedicated
   futureGoals: Maintain Profits, Current power structure
   additionalNotes: Likes to organize digital group activities
-  portrait: {fileID: 21300000, guid: d6f9ab22bb9892041af5058d0a9aa400, type: 3}
+  portrait: {fileID: 21300000, guid: 3e46963cd25aa934ca84cc35188dcb04, type: 3}
 --- !u!1 &4340283441966614801
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,7 +512,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d6f9ab22bb9892041af5058d0a9aa400, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3e46963cd25aa934ca84cc35188dcb04, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
