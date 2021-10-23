@@ -10,6 +10,10 @@
   {w n} wait for n seconds and clear
   {wa n} wait for n seconds and add to the current text
 
+replacementGlitch(), next
+
+
+
 #Hold the game in a wait state
   wait(n) close the dialogue window and wait for n seconds
 

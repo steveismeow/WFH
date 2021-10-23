@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 /// <summary>
 /// Manages which day it is, determining day of the week, advancing time, and managing actions based on time of day
@@ -9,6 +10,9 @@ public class DayManager : MonoBehaviour
 {
     public DayOfTheWeek dayUI;
     public DialogueManager dialogueManager;
+
+    public TMP_Text dayScreenText;
+    public Animator dayScreenAnim;
 
     public static DayManager instance;
 
@@ -42,19 +46,35 @@ public class DayManager : MonoBehaviour
 
     public void AdvanceDay()
     {
-        dayUI.dayNumber++;
-        dayUI.SetDayOfTheWeek();
+        dayNumber++;
+        UpdateDayUI();
 
-        StartDay();
+        print("Day Number:" + dayNumber);
+        print("UI Day Number:" + dayUI.dayNumber);
+
+
+        //StartDay();
     }
 
+    public bool isstartingday { get { return startingDay != null; } }
+    Coroutine startingDay;
     public void StartDay()
     {
-        //Normal start day actions prior to any dialogue (i.e. fade in, etc.)
+        print("Starting Day!");
 
-        MeetingManager.instance.StartUp();
-        //MailManager.instance.StartUp();
-        //WorkManager.instance.StartUp();
+        //Normal start day actions prior to any dialogue (i.e. fade in, etc.)
+        //startingDay = StartCoroutine(startingDay());
+        if (!MeetingManager.instance.hasBeenInitialized)
+        {
+            MeetingManager.instance.StartUp();
+        }
+
+        if (!ProfileManager.instance.hasBeenInitialized)
+        {
+            ProfileManager.instance.StartUp();
+        }
+
+        MailManager.instance.StartUp();
 
 
         switch (dayUI.dayNumber)
@@ -79,4 +99,59 @@ public class DayManager : MonoBehaviour
             //    break;
         }
     }
+
+    //IEnumerator StartingDay()
+    //{
+
+    //}
+
+    public void EndDay()
+    {
+
+        AdvanceDay();
+        SetDayScreenText();
+
+        endingDay = StartCoroutine(EndingDay());
+
+    }
+
+    public bool isendingday { get { return endingDay != null; } }
+    Coroutine endingDay;
+    IEnumerator EndingDay()
+    {
+        ScreenManager.instance.DeactivateAllWindows();
+        ScreenManager.instance.DeactivateDock();
+        ScreenManager.instance.ActivateLockScreen();
+
+        dayScreenAnim.Play("Play");
+
+        yield return new WaitForSeconds(3f);
+
+        StartDay();
+        endingDay = null;
+    }
+
+    void SetDayScreenText()
+    {
+        switch (dayUI.dayNumber)
+        {
+            case 1:
+                dayScreenText.text = "Tuesday";
+
+                break;
+            case 2:
+                dayScreenText.text = "Wednesday";
+
+                break;
+            case 3:
+                dayScreenText.text = "Thursday";
+
+                break;
+            case 4:
+                dayScreenText.text = "Friday";
+
+                break;
+        }
+    }
+
 }

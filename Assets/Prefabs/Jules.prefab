@@ -123,4 +123,5 @@ MonoBehaviour:
   characterName: Jules
   spriteRenderer: {fileID: 3133172722289599389}
   animator: {fileID: 5687723623462236112}
-  background: {fileID: 21300000, guid: e96f29ba01a9181409bd8b3c004d3ff8, type: 3}
+  background: {fileID: 21300000, guid: 89f3a3867701c3d41bc05bf837ba017c, type: 3}
+  bloodyBackground: {fileID: 21300000, guid: 84f274aeda93a7f41902cf267b8bc334, type: 3}

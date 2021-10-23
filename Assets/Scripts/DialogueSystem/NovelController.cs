@@ -290,9 +290,21 @@ public class NovelController : MonoBehaviour
             case "exitDialogue":
                 ExitDialogue();
                 break;
+            case "endDay":
+                Command_EndDay();
+                break;
+
 
 
         }
+    }
+
+    void Command_EndDay()
+    {
+        //Tell DayManager to play EndDay()
+        DayManager.instance.EndDay();
+
+        Command_SetLayerImage("black", LayerController.instance.foreground);
     }
 
 

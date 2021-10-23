@@ -123,4 +123,5 @@ MonoBehaviour:
   characterName: Tio
   spriteRenderer: {fileID: 6116997527326875936}
   animator: {fileID: 3564152334870211949}
-  background: {fileID: 21300000, guid: e96f29ba01a9181409bd8b3c004d3ff8, type: 3}
+  background: {fileID: 21300000, guid: e9b24b0f9f4324e4c850bcc6638732d1, type: 3}
+  bloodyBackground: {fileID: 21300000, guid: 66268e34e2268fe488c19a6b6609209c, type: 3}

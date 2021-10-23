@@ -1,0 +1,5 @@
+player "Better get to work."
+
+clearFG(0.2), next
+
+exitDialogue()
