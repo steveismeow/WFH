@@ -1,0 +1,14 @@
+next
+You "Well, Horatio, that about concludes our time."
+
+You "Our scheduling team will be in touch to arrange a time for us to speak again tomorrow."
+
+Horatio "Alright. {a} Sounds good."
+
+"Have a good one!"
+
+setMeetingUp(Jules, Meeting_Jules_1), setTimeTo(12:00PM)
+
+endMeeting(), next
+
+exitDialogue()

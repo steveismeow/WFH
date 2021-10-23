@@ -1,0 +1,11 @@
+next
+
+player "I guess that does it for the interviews for today."
+
+"I'll draft my report for HQ and call it a day"
+
+setTimeTo(5:00PM), next
+
+wait(1)
+
+endDay(), exitDialogue()

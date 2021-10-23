@@ -109,6 +109,11 @@ public class ScreenManager : MonoBehaviour
         {
             NovelController.instance.LoadChapterFile("Day1_EmailPrompt");
         }
+        else if (DayManager.instance.dayUI.dayNumber == 4)
+        {
+            NovelController.instance.LoadChapterFile("Day5_MeetingPrompt");
+        }
+
 
         deactivatingLockScreen = null;
     }

@@ -1,0 +1,20 @@
+next
+You "How did you start your career with Products Incorporated?""
+
+Horatio "I started in the warehouse, many many years ago, when I was much younger."
+
+playAnim(Happy), next
+
+"When I was much more handsome", playAnim(Neutral), next
+
+choice ""
+{
+You "I noticed you received many accolades in the Warehouse division."
+Load(Meeting_Tio_1a2),
+You "What initiated your transfer to Customer Service?"
+Horatio "Ah... {a} I don't like to talk about it" playAnim(Nervous),
+}
+
+You "Horatio, for this process to work, it's important that you be forthcoming with your answers.", plusPerformance(5)
+
+Load(Meetiing_Tio_1a3)

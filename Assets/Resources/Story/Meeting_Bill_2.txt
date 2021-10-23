@@ -1,0 +1,41 @@
+next
+
+Bill "Hello again."
+
+"We have received a wealth of information from your work this week."
+
+"Our team has projected a 5% increase in overall work efficiency utilizing the data you've provided."
+
+"Rest assured I've given a glowing commendation for your efforts."
+
+Bill "There was one last matter I was hoping you could assist with."
+
+"We have identified Lily as a candidate for a new position."
+
+"A realignment that will provide her a more rewarding work experience."
+
+"I've already set up a meeting for you to give her the good news."
+
+"What do you say?", next
+
+choice ""
+{
+You "I'd be delighted."
+Bill "Perfect",
+You "I'm not sure that's a good idea."
+Load(Meeting_Bill_2b),
+You "There is something very wrong here."
+Load(Meeting_Bill_2b),
+}
+
+Bill "I'll leave you to it then. {a} Thanks again for all your help", setMeetingUp(Lily, Meeting_Lily_4), next
+
+choice""
+{
+player "Leave the call"
+endMeeting() exitDialogue,
+player "Stay on the line"
+player "...",
+}
+
+replacementGlitch()

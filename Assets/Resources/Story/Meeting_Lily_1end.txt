@@ -1,0 +1,11 @@
+next
+
+You "Well thank you for your time. I know you have a busy afternoon. We'll resume tomorrow."
+
+Lily "Thank you. {a} Take care.", playAnim(Happy)
+
+setTimeTo(5:00PM)
+
+endMeeting()
+
+Load(Day2_End)

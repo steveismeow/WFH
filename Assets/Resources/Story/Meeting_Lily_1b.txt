@@ -1,0 +1,25 @@
+next
+
+plusPerformance(5), next
+
+Lily "That's a big question... {a} I think success for me is finding meaning and recognition for my work.", next
+
+You "And do you believe that you are receiving that at Products Incorporated?"
+
+Lily " Of course!" playAnim(Happy)
+
+"I've earned two promotions and multiple awards here since I started."
+
+"If that doesn't make you feel like a successful employee, I'm not sure what would."
+
+You "Speaking of promotions, {a} you've just made a relatively large change into management."
+
+"How has that been?"
+
+Lily "Oh, it's been a great challenge. Something I'm excited to continue exploring."
+
+You "Do you think management will continue to be your path at Products Incorporated?"
+
+Lily "I think it's much too soon to be certain, {a} however I do believe in Products Incorporated and our mission."
+
+Load(Meeting_Lily_1end)

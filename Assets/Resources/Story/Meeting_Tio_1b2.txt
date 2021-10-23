@@ -1,0 +1,16 @@
+next
+playAnim(Nervous), next
+
+Horatio "If I'm being honest, not really. The lack of movement increases my pain level, {a} and the lack of company has affected my wellbeing."
+
+"I'm not complaining, I love my job."
+
+"But I do miss the office."
+
+You "I appreciate your honesty."
+
+"Why don't we circle back to this later on."
+
+"How did you start your career with Products Incorporated?"
+
+Load(Meeting_Tio_1a)

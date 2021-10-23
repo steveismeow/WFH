@@ -1,3 +1,6 @@
-player "I better make preparations for tomorrow. {a} Could take the rest of the day."
+next
+setTimeTo(5:00PM), next
+
+wait(1)
 
 endDay(), exitDialogue()
