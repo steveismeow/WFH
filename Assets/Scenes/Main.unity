@@ -738,7 +738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockScreen: {fileID: 1479350572}
-  lockScreenCanvasGroup: {fileID: 1479350577}
+  lockScreenCanvasGroup: {fileID: 0}
   meetingWindow: {fileID: 1533809457}
   mailWindow: {fileID: 1806323270}
   workWindow: {fileID: 1584527530}
@@ -746,7 +746,7 @@ MonoBehaviour:
   musicWindow: {fileID: 1604003875}
   notesWindow: {fileID: 915175688}
   dock: {fileID: 1969812089}
-  unlock: {fileID: 8300000, guid: 9cfb809f9a19e1c4b8afbcdbee562394, type: 3}
+  unlock: {fileID: 0}
   buttons:
   - {fileID: 1878027402}
   - {fileID: 1534710551}
@@ -947,13 +947,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoFeed: {fileID: 1974838569}
   background: {fileID: 190402333}
-  bloodyBackground: {fileID: 668962596}
+  bloodyBackground: {fileID: 0}
   startMeetingButton: {fileID: 1555821749}
   currentCharacter: {fileID: 0}
   defaultBackground: {fileID: 21300000, guid: ff3038d5bd3e6974693d06cb9b2d2d48, type: 3}
   whiteNoise: {fileID: 21300000, guid: 6fcfdd61a3242c547acf93e9747a6097, type: 3}
-  startCall: {fileID: 8300000, guid: e1c7ce706979b104e86386aac1dda77d, type: 3}
-  endCall: {fileID: 8300000, guid: 6618077808460a64e823d3e940105aef, type: 3}
+  startCall: {fileID: 0}
+  endCall: {fileID: 0}
   notificationTag: {fileID: 2037659389}
   characters: []
   characterPool: {fileID: 142743473}
@@ -11377,8 +11377,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dayUI: {fileID: 41576774}
   dialogueManager: {fileID: 1102181777}
-  dayScreenText: {fileID: 691659423}
-  dayScreenAnim: {fileID: 691659422}
+  dayScreenText: {fileID: 0}
+  dayScreenAnim: {fileID: 0}
   dayNumber: 0
 --- !u!1 &1806323270
 GameObject:
