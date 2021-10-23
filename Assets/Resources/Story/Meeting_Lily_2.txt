@@ -1,0 +1,21 @@
+next
+
+Lily "Hi", playAnim(Happy)
+
+You "Hello again, Lily."
+
+"Let's get started."
+
+"As a new manager, how would you say your team has handled the transition into the WFH model?"
+
+playAnim(Neutral), next
+
+Lily "Oh, they've been great. {a} Since these days most marketing happens in a digital realm, it was an easy transition.", next
+
+choice ""
+{
+You "You seem so comfortable in the digital realm, as you put it. Did you study social media in school?"
+Load(Meeting_Lily_2a),
+You "And what about you? How has it been being a WFH manager?"
+Load(Meeting_Lily_2b),
+}

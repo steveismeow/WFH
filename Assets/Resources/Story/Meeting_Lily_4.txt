@@ -1,0 +1,20 @@
+next
+
+Lily "I didn't think we'd be meeting again."
+
+"What a pleasant surprise."
+
+You "Yes, well the company has some good news for you."
+
+Lily "Oh?"
+
+playAnim(Death)
+
+
+wait(22)
+
+setCinematic(glitch), next
+
+wait(1)
+
+setForeground(black)

@@ -1,0 +1,11 @@
+next
+
+plusPerformance(5), next
+
+Lily "I think that so far, my team and I have set up a foundation for success."
+
+"Sometimes companies are a bit harder to crack than others, and if I'm being honest, {a} Products Incorporated is unlike any company I've ever worked with."
+
+You "I hope that this is just the beginning of a promising career with Products Incorporated, Lily. Thank you for your time and enthusiasm this week."
+
+Load(Meeting_Lily_3end)

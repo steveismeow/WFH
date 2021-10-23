@@ -1,3 +1,9 @@
 next
 
 Bill "A pity. {a} You showed such promise[txtSpd 15, 1]...[/txtSpd]"
+
+setForeground(black), next
+
+wait(2)
+
+setCinematic(ShutDown);

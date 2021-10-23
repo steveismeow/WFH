@@ -1,0 +1,21 @@
+next
+
+plusPerformance(2)
+
+Lily "I would say so."
+
+"In my previous internship, I managed the social media profile for a large technology company."
+
+"That, and my personal Instagram platform have made me well-suited to this position."
+
+You "Have you always had this success-oriented personality?"
+
+Lily "Oh, I guess so? {a} I'm a competitive person."
+
+"Having been recognized in previous jobs, as well as in college has made me seek recognition."
+
+You "Do you think management will continue to be your path at Products Incorporated?"
+
+Lily "I think it's much too soon to be certain, {a} however I do believe in Products Incorporated and our mission."
+
+Load(Meeting_Lily_1end)

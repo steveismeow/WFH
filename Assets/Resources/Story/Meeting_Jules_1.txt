@@ -1,7 +1,11 @@
 next
 
-Jules "This is a placeholder"
+Jules "Hello?"
 
-setMeetingUp(Lily, Meeting_Lily_1), setTimeTo(12:00PM)
+replacementGlitch()
+
+endMeeting()
+
+setMeetingUp(Lily,Meeting_Lily_1), setTimeTo(3:00PM)
 
 exitDialogue()

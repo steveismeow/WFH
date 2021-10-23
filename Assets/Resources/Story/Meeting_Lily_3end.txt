@@ -1,0 +1,9 @@
+next
+
+You "I believe that's all the time we have today, Lily. Good luck with everything from here."
+
+Lily "Thank you very much!" playAnim(Happy)
+
+endMeeting()
+
+Load(Day4_End)

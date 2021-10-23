@@ -1,0 +1,37 @@
+next
+
+You "I'm looking forward to continuing our conversation."
+
+"Yesterday we discussed your history with the company. {a} Today, I'd like to dig into your work with the Marketing team."
+
+Lily "Sounds good.", playAnim(Happy)
+
+You "What do you believe creates a meaningful brand identity?", playAnim(Neutral)
+
+Lily "This may sound a bit contrived, {a} but I think you have to know who your company is in order to design a functional and memorable brand identity."
+
+You "Can you elaborate on that?"
+
+Lily "Basically my job is to make a digital simulacrum."
+
+You "simulacrum?"
+
+Lily "Or a digital representation of the company."
+
+"Without being able to make that representation seem 'real', our marketing and social media will seem fake and our engagement would decrease"
+
+You "And how exactly do you accomplish that?"
+
+Lily "In my experience it's a lot of  iteration."
+
+"You try something, you test it, and then make changes from there."
+
+"At my last company, it took almost 2 years to achieve the brand identity we wanted.", next
+
+choice ""
+{
+You "How did you get such a complex understanding of effective social media?"
+Load(Meeting_Lily_3a),
+You "And what do you think about what you've achieved in your time at Products Incorporated?"
+Load(Meeting_Lily_3b),
+}

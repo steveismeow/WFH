@@ -1,0 +1,21 @@
+next
+
+Lily "Thank you." playAnim(Happy)
+
+You "Have you held a management role in previous positions?"
+
+Lily "Ah, definitely not in this large of a company."
+
+"But I'm ever confident that what I lack in experience I've more than made up for in my work ethic."
+
+You "I can see that."
+
+"Well that's about our time today."
+
+Lily "Thank you, I do try very hard."
+
+"Are we still on for a meeting tomorrow?"
+
+You "Yes. See you tomorrow."
+
+Load(Meeting_Lily_2end)

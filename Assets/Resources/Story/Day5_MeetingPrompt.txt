@@ -2,4 +2,6 @@ next
 
 player "I'll need to meet with Bill to go over the results."
 
+setMeetingUp(Bill,Meeting_Bill_2)
+
 exitDialogue()

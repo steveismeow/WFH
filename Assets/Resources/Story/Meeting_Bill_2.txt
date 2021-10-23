@@ -28,7 +28,7 @@ You "There is something very wrong here."
 Load(Meeting_Bill_2b),
 }
 
-Bill "I'll leave you to it then. {a} Thanks again for all your help", setMeetingUp(Lily, Meeting_Lily_4), next
+Bill "I'll leave you to it then. {a} Thanks again for all your help", setMeetingUp(Lily,Meeting_Lily_4), next
 
 choice""
 {
@@ -39,3 +39,5 @@ player "...",
 }
 
 replacementGlitch()
+
+endMeeting(), exitDialogue()

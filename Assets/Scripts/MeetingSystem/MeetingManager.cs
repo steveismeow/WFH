@@ -130,8 +130,6 @@ public class MeetingManager : MonoBehaviour
 
         currentCharacter.gameObject.SetActive(false);
 
-        queuedMeeting = "";
-
         endingMeeting = StartCoroutine(EndingMeeting());
     }
 
@@ -140,6 +138,11 @@ public class MeetingManager : MonoBehaviour
         AudioManager.instance.PlaySFX(endCall);
 
         yield return new WaitForSeconds(2f);
+
+        if (queuedMeeting != null)
+        {
+            startMeetingButton.SetActive(true);
+        }
     }
 
     public GameObject IdentifyCharacter(string name)

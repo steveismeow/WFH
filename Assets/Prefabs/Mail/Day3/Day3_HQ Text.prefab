@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4341040666744192057
+--- !u!1001 &4806591520153440877
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -16,7 +16,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7229677893178976724, guid: 4eb10bfba52779444a472046af4f0bc2, type: 3}
       propertyPath: m_Name
-      value: Day2_HQ Text
+      value: Day3_HQ Text
       objectReference: {fileID: 0}
     - target: {fileID: 9172554712105755417, guid: 4eb10bfba52779444a472046af4f0bc2, type: 3}
       propertyPath: m_Pivot.x

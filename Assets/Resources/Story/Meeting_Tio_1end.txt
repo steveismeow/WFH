@@ -7,7 +7,7 @@ Horatio "Alright. {a} Sounds good."
 
 "Have a good one!"
 
-setMeetingUp(Jules, Meeting_Jules_1), setTimeTo(12:00PM)
+setMeetingUp(Jules,Meeting_Jules_1), setTimeTo(12:00PM)
 
 endMeeting(), next
 

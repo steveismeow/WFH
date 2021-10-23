@@ -1,0 +1,33 @@
+next
+
+plusPerformance(5), next
+
+Lily "Umm, not directly. But I think that for my generation, growing up using social media has been an education in and of itself."
+
+You "You've had such success in your young career, it must feel very gratifying."
+
+Lily "I've been very lucky.", playAnim(Happy)
+
+You "Do you think management will continue to be your path at Products Incorporated?"
+
+Lily "I do hope so."
+
+"This new management position fits very well with my previous experience."
+
+"In fact, at my last position I was in the final interview rounds for a similar management position.", next
+
+choice ""
+{
+You "Oh, really? You've only been out of college for a few years, and according to your resume, most have been with Products Incorporated."
+plusPerformance(5),
+You "It really seems like you're a perfect fit for your position Lily."
+plusPerformance(2),
+}
+
+Lily "Thank you, I do try very hard."
+
+"Are we still on for a meeting tomorrow?"
+
+You "Yes. See you tomorrow."
+
+Load(Meeting_Lily_2end)

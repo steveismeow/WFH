@@ -1,0 +1,19 @@
+next
+
+plusPerformance(2), next
+
+Lily "My studies in college were focused on sociology and psychology."
+
+"I guess having an understanding of people has complemented my position."
+
+You "How fortuitous."
+
+Oh yes. I'm honestly quite a curious person."
+
+"So it's no surprise that my studies encompassed a wide range of topics."
+
+"Luckily, its all been effective in this position."
+
+You "Well it seems like you have made quite a name for yourself here Lily. Keep up the good work and I'm sure the higher-ups will take notice."
+
+Load(Meeting_Lily_3end)
