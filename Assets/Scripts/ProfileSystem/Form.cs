@@ -53,6 +53,8 @@ public class Form : MonoBehaviour
         ProfileManager.instance.portrait.sprite = portrait;
         //ProfileManager.instance.profileBodyText.profileImage.sprite = profileImage;
 
+        ProfileManager.instance.ResetScrollBar();
+
         ProfileManager.instance.currentlyVisibleProfile = this;
 
     }

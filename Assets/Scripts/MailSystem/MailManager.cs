@@ -31,6 +31,10 @@ public class MailManager : MonoBehaviour
     private GameObject notificationTag;
 
     [SerializeField]
+    private Scrollbar scrollBar;
+
+
+    [SerializeField]
     private Transform replyButtonContainer;
 
     [SerializeField]
@@ -181,6 +185,11 @@ public class MailManager : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+    }
+
+    public void ResetScrollBar()
+    {
+        scrollBar.value = 1;
     }
 
 }
