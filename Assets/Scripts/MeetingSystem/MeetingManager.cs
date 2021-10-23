@@ -19,6 +19,8 @@ public class MeetingManager : MonoBehaviour
     [SerializeField]
     private Sprite whiteNoise;
 
+    public AudioClip whiteNoiseSFX;
+
     public AudioClip startCall, endCall;
 
     [SerializeField]
@@ -31,6 +33,9 @@ public class MeetingManager : MonoBehaviour
     public GameObject characterPool;
 
     public bool hasBeenInitialized = false;
+
+
+    
 
 
     private void Awake()
@@ -202,6 +207,11 @@ public class MeetingManager : MonoBehaviour
 
         background.sprite = currentCharacter.background;
         currentCharacter.gameObject.SetActive(true);
+
+
+        // Implementing whitenoise
+        AudioManager.instance.PlaySFX(whiteNoiseSFX);
+
     }
 
 }
