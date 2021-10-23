@@ -76,6 +76,10 @@ public class DayManager : MonoBehaviour
 
         MailManager.instance.StartUp();
 
+        ScreenManager.instance.ActivateLockScreen();
+
+        Clock.instance.SetTimeTo("9:00AM");
+
 
         switch (dayUI.dayNumber)
         {
@@ -121,7 +125,6 @@ public class DayManager : MonoBehaviour
     {
         ScreenManager.instance.DeactivateAllWindows();
         ScreenManager.instance.DeactivateDock();
-        ScreenManager.instance.ActivateLockScreen();
 
         dayScreenAnim.Play("Play");
 

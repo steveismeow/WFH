@@ -269,6 +269,9 @@ public class NovelController : MonoBehaviour
             case "setMeetingUp":
                 Command_SetMeetingUp(data[1]);
                 break;
+            case "loadMail":
+                Command_LoadMail(data[1]);
+                break;
             case "endMeeting":
                 Command_EndMeeting();
                 break;
@@ -356,6 +359,11 @@ public class NovelController : MonoBehaviour
     void Command_EndMeeting()
     {
         MeetingManager.instance.EndMeeting();
+    }
+
+    void Command_LoadMail(string data)
+    {
+        MailManager.instance.LoadInMail(data);
     }
 
     void Command_ReplacementGlitch()

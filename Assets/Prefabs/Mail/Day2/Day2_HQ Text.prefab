@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &993450312047246389
+--- !u!1001 &4341040666744192057
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,13 +9,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6517711149023990141, guid: 4eb10bfba52779444a472046af4f0bc2, type: 3}
       propertyPath: m_text
-      value: "Good Morning, \n\nI appreciate your company accommodating our needs
-        on such short notice. Please link up with me in a video call when you get
-        in and I will brief you on the project details. \n\nCheers,\n\nBill"
+      value: "Dear Employee,\n\nToday marks the first day of interviews. Your schedule
+        is as follows:\n\n9:00AM - Horatio Per\xE9z\n12:00PM -  Juliette Marie Thatcher\n3:00PM
+        - Lily Chao\n\nPlease make sure to review their Employee Profiles prior to
+        your appointments. \n\n"
       objectReference: {fileID: 0}
     - target: {fileID: 7229677893178976724, guid: 4eb10bfba52779444a472046af4f0bc2, type: 3}
       propertyPath: m_Name
-      value: Day1_Bill Text
+      value: Day2_HQ Text
       objectReference: {fileID: 0}
     - target: {fileID: 9172554712105755417, guid: 4eb10bfba52779444a472046af4f0bc2, type: 3}
       propertyPath: m_Pivot.x

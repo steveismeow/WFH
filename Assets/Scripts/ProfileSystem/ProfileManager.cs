@@ -21,6 +21,9 @@ public class ProfileManager : MonoBehaviour
 
     public bool hasBeenInitialized = false;
 
+    [SerializeField]
+    private Scrollbar scrollBar;
+
     private void Awake()
     {
         instance = this;
@@ -86,6 +89,11 @@ public class ProfileManager : MonoBehaviour
             Form taskData = profileObject.GetComponent<Form>();
         }
 
+    }
+
+    public void ResetScrollBar()
+    {
+        scrollBar.value = 1;
     }
 
 }

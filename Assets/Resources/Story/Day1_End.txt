@@ -1,0 +1,3 @@
+player "I better make preparations for tomorrow. {a} Could take the rest of the day."
+
+endDay(), exitDialogue()

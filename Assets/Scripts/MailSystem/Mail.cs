@@ -61,6 +61,7 @@ public class Mail : MonoBehaviour
         MailManager.instance.bodyText.mailText.text = mailTextPrefab.text;
 
         MailManager.instance.currentlyVisibleMail = this;
+        MailManager.instance.ResetScrollBar();
 
 
         ClearReplyContent();
