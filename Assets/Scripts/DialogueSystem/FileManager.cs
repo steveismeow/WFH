@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ using System.IO;
 /// </summary>
 public class FileManager : MonoBehaviour
 {
+
 	/// <summary>
 	/// The root save path for ALL data
 	/// </summary>
@@ -200,9 +202,9 @@ public class FileManager : MonoBehaviour
 	/// <returns>The JSO.</returns>
 	/// <param name="filePath">File path.</param>
 	/// <typeparam name="T">The 1st type parameter.</typeparam>
-	public static T LoadJSON<T>(string filePath)
-	{
-		string jsonString = LoadFile(filePath)[0];
-		return JsonUtility.FromJson<T>(jsonString);
-	}
+	//public static T LoadJSON<T>(string filePath)
+	//{
+	//	string jsonString = LoadFile(filePath)[0];
+	//	return JsonUtility.FromJson<T>(jsonString);
+	//}
 }

@@ -13,6 +13,8 @@ public class NovelController : MonoBehaviour
 
     List<string> data = new List<string>();
 
+    public List<TextAsset> textAssets = new List<TextAsset>();
+
     void Awake()
     {
         instance = this;
@@ -35,7 +37,7 @@ public class NovelController : MonoBehaviour
     public void LoadChapterFile(string fileName)
     {
         activeChapterFile = fileName;
-        data = FileManager.LoadFile(FileManager.savePath + "Resources/Story/" + fileName);
+        data = FileManager.LoadFile("Resources/Story/" + fileName);
         cachedLastSpeaker = "";
 
         if (handlingChapterFile != null)
